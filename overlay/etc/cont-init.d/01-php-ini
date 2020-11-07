@@ -13,13 +13,17 @@
 
 if [ "$PHP_INI" == "development" ] || [ "$PHP_INI" == "production" ] ; then
     URL="https://github.com/php/php-src/blob/master/php.ini-$PHP_INI"
-    curl -L -o "$URL" "/etc/php7/php.ini"
+    echo " - downloading php.ini from $URL..."
+    curl -L -o "/etc/php7/php.ini" "$URL"
+    echo " - done."
 fi
 
 
 #======================================================================================================================
 # Optionally override configuration
 #======================================================================================================================
+
+echo " - php.ini configuration overrides..."
 
 if [ ! -z "$PHP_DISPLAY_ERRORS" ] ; then
     sed -i "s|display_errors\s*=\s*Off|display_errors = $PHP_DISPLAY_ERRORS|i" /etc/php7/php.ini
@@ -44,3 +48,5 @@ fi
 if [ ! -z "$PHP_MAX_POST" ] ; then
     sed -i "s|;*post_max_size =.*|post_max_size = $PHP_MAX_POST|i" /etc/php7/php.ini
 fi
+
+echo " - done."
