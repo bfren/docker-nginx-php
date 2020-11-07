@@ -16,7 +16,8 @@ ENV PHP_MAX_POST="64M"
 
 RUN apk update && \
     apk upgrade && \
-    apk add php7 \
+    apk add curl \
+        php7 \
         php7-bcmath \
         php7-common \
         php7-ctype \
