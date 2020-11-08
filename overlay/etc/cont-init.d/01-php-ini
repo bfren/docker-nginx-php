@@ -18,6 +18,7 @@ fi
 
 echo " - overriding php.ini configuration values..."
 
+declare -A VALUES
 VALUES["display_errors"]            = "$PHP_DISPLAY_ERRORS"
 VALUES["display_startup_errors"]    = "$PHP_DISPLAY_STARTUP_ERRORS"
 VALUES["error_reporting"]           = "$PHP_ERROR_REPORTING"
