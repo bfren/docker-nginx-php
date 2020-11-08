@@ -27,6 +27,6 @@ VALUES["upload_max_filesize"]="$PHP_MAX_UPLOAD"
 VALUES["post_max_size"]="$PHP_MAX_POST"
 
 source "/etc/functions/replace.sh"
-replace $VALUES "/etc/php7/php.ini"
+replace VALUES "/etc/php7/php.ini"
 
 echo " - done."

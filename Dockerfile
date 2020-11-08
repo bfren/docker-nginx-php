@@ -14,13 +14,14 @@ ENV PHP_MEMORY_LIMIT="256M"
 ENV PHP_MAX_UPLOAD="64M"
 ENV PHP_MAX_POST="64M"
 
-RUN apk update && \
-    apk upgrade && \
-    apk add curl \
+RUN apk update \
+    && apk upgrade \
+    && apk add \
+        curl \
         php7 \
         php7-common \
         php7-fpm \
-        php7-session \ 
-    rm -rf /var/cache/apk/*
+        php7-session \
+    && rm -rf /var/cache/apk/*
 
 COPY ./overlay /
