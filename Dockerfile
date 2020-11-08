@@ -1,4 +1,4 @@
-FROM bcgdesign/nginx:1.0.3
+FROM bcgdesign/nginx:1.18.0
 
 LABEL maintainer="Ben Green <ben@bcgdesign.com>" \
     org.label-schema.name="Nginx + PHP" \
@@ -14,16 +14,16 @@ ENV PHP_MEMORY_LIMIT="256M"
 ENV PHP_MAX_UPLOAD="64M"
 ENV PHP_MAX_POST="64M"
 
-ARG VERSION="7.4.12-r0"
+ARG PHP_VERSION="7.4.12-r0"
 
 RUN apk update \
     && apk upgrade \
     && apk add \
         curl \
-        php7=${VERSION} \
-        php7-common=${VERSION} \
-        php7-fpm=${VERSION} \
-        php7-session=${VERSION} \
+        php7=${PHP_VERSION} \
+        php7-common=${PHP_VERSION} \
+        php7-fpm=${PHP_VERSION} \
+        php7-session=${PHP_VERSION} \
     && rm -rf /var/cache/apk/*
 
 COPY ./overlay /

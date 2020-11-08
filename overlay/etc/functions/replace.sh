@@ -7,7 +7,7 @@ replace () {
     FILE=${2}
 
     # loop
-    for KEY in ${!A[@]}; do
+    for KEY in ${!A[@]} ; do
         VAL=${A[$KEY]}
         if [ ! -z "${VAL}" ] ; then
             sed -i "s|^;\?${KEY}.*$|${KEY} = ${VAL}|i" ${FILE}
