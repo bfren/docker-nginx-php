@@ -16,7 +16,7 @@ ENV PHP_MAX_POST="64M"
 
 COPY ./VERSION /tmp/VERSION
 RUN export PHP_VERSION=$(cat /tmp/VERSION) \
-    && echo "PHP ${PHP_VERSION}" \
+    && echo "PHP v${PHP_VERSION}" \
     && apk update \
     && apk upgrade \
     && apk add \
