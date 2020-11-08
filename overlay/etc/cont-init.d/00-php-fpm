@@ -4,9 +4,17 @@
 # From https://wiki.alpinelinux.org/wiki/Nginx_with_PHP#PHP7_Installation
 #======================================================================================================================
 
-sed -i "s|;listen.owner\s*=\s*nobody|listen.owner = www|g" /etc/php7/php-fpm.d/www.conf
-sed -i "s|;listen.group\s*=\s*nobody|listen.group = www|g" /etc/php7/php-fpm.d/www.conf
-sed -i "s|;listen.mode\s*=\s*0660|listen.mode = 0660|g" /etc/php7/php-fpm.d/www.conf
-sed -i "s|user\s*=\s*nobody|user = www|g" /etc/php7/php-fpm.d/www.conf
-sed -i "s|group\s*=\s*nobody|group = www|g" /etc/php7/php-fpm.d/www.conf
-sed -i "s|;log_level\s*=\s*notice|log_level = notice|g" /etc/php7/php-fpm.d/www.conf
+echo " - overriding www.conf configuration values..."
+
+declare -A VALUES
+VALUES["listen.owner"]="www"
+VALUES["listen.group"]="www"
+VALUES["listen.mode"]="0660"
+VALUES["user"]="www"
+VALUES["group"]="www"
+VALUES["log_level"]="notice"
+
+source "/etc/functions/replace.sh"
+replace $VALUES "/etc/php7/php-fpm.d/www.conf"
+
+echo " - done."

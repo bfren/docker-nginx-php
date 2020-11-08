@@ -26,11 +26,7 @@ VALUES["memory_limit"]="$PHP_MEMORY_LIMIT"
 VALUES["upload_max_filesize"]="$PHP_MAX_UPLOAD"
 VALUES["post_max_size"]="$PHP_MAX_POST"
 
-for KEY in "${!VALUES[@]}"; do
-    VAL="${VALUES[$KEY]}"
-    if [ ! -z "$VAL" ] ; then
-        sed -i "s|^;\?$KEY.*$|$KEY = $VAL|i" /etc/php7/php.ini
-    fi
-done
+source "/etc/functions/replace.sh"
+replace $VALUES "/etc/php7/php.ini"
 
 echo " - done."
