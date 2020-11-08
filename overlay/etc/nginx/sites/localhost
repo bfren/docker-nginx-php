@@ -1,27 +1,8 @@
 server {
-    listen                          80;
-
-    root                            /www;
+    include                         helpers/base.conf;
     index                           index.php index.html index.htm;
-
-    add_header                      X-Clacks-Overhead "GNU Terry Pratchett";
-
-    error_page                      500 502 503 504  /50x.html;
-    location = /50x.html {
-        root                        /var/lib/nginx/html;
-    }
-
-    location / {
-        try_files                   $uri $uri/ /index.php?$args;
-    }
-
-    location ~ \.php$ {
-        try_files                   $uri =404;
-        include                     fastcgi_params;
-        fastcgi_pass                php;
-        fastcgi_index               index.php;
-        fastcgi_param               SCRIPT_FILENAME $document_root$fastcgi_script_name;
-    }
-
+    include                         helpers/nginx_error_pages.conf;
+    include                         helpers/php_try_all.conf;
+    include                         helpers/php_try_php.conf;
     include                         helpers/static_files.conf;
 }
