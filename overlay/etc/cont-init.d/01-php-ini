@@ -1,20 +1,13 @@
 #!/usr/bin/with-contenv bash
 
 #======================================================================================================================
-# Includes https://wiki.alpinelinux.org/wiki/Nginx_with_PHP#PHP7_Installation
-#
-# Modifications copyright (c) 2020 Ben Green <https://bcgdesign.com>
-#======================================================================================================================
-
-
-#======================================================================================================================
 # Get php.ini 
 #======================================================================================================================
 
 if [ "$PHP_INI" == "development" ] || [ "$PHP_INI" == "production" ] ; then
     URL="https://raw.githubusercontent.com/php/php-src/master/php.ini-$PHP_INI"
     echo " - downloading php.ini from $URL..."
-    curl -L -o "/etc/php7/php.ini" "$URL"
+    curl -Ls -o "/etc/php7/php.ini" "$URL"
     echo " - done."
 fi
 
@@ -25,28 +18,18 @@ fi
 
 echo " - overriding php.ini configuration values..."
 
-if [ ! -z "$PHP_DISPLAY_ERRORS" ] ; then
-    sed -i "s|display_errors\s*=\s*Off|display_errors = $PHP_DISPLAY_ERRORS|i" /etc/php7/php.ini
-fi
+VALUES["display_errors"]            = "$PHP_DISPLAY_ERRORS"
+VALUES["display_startup_errors"]    = "$PHP_DISPLAY_STARTUP_ERRORS"
+VALUES["error_reporting"]           = "$PHP_ERROR_REPORTING"
+VALUES["memory_limit"]              = "$PHP_MEMORY_LIMIT"
+VALUES["upload_max_filesize"]       = "$PHP_MAX_UPLOAD"
+VALUES["post_max_size"]             = "$PHP_MAX_POST"
 
-if [ ! -z "$PHP_DISPLAY_STARTUP_ERRORS" ] ; then
-    sed -i "s|display_startup_errors\s*=\s*Off|display_startup_errors = $PHP_DISPLAY_STARTUP_ERRORS|i" /etc/php7/php.ini
-fi
-
-if [ ! -z "$PHP_ERROR_REPORTING" ] ; then
-    sed -i "s|error_reporting\s*=\s*E_ALL & ~E_DEPRECATED & ~E_STRICT|error_reporting = $PHP_ERROR_REPORTING|i" /etc/php7/php.ini
-fi
-
-if [ ! -z "$PHP_MEMORY_LIMIT" ] ; then
-    sed -i "s|;*memory_limit =.*|memory_limit = $PHP_MEMORY_LIMIT|i" /etc/php7/php.ini
-fi
-
-if [ ! -z "$PHP_MAX_UPLOAD" ] ; then
-    sed -i "s|;*upload_max_filesize =.*|upload_max_filesize = $PHP_MAX_UPLOAD|i" /etc/php7/php.ini
-fi
-
-if [ ! -z "$PHP_MAX_POST" ] ; then
-    sed -i "s|;*post_max_size =.*|post_max_size = $PHP_MAX_POST|i" /etc/php7/php.ini
-fi
+for KEY in "${!VALUES[@]}"; do
+    VAL="${VALUES[$KEY]}"
+    if [ ! -z "$VAL" ] ; then
+        sed -i "s|^;\?$KEY.*$|$KEY = $VAL|i" /etc/php7/php.ini
+    fi
+done
 
 echo " - done."
