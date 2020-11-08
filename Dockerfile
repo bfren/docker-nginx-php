@@ -15,9 +15,9 @@ ENV PHP_MAX_UPLOAD="64M"
 ENV PHP_MAX_POST="64M"
 
 COPY ./VERSION /tmp/VERSION
-RUN export PHP_VERSION=$(cat /tmp/VERSION)
-
-RUN apk update \
+RUN export PHP_VERSION=$(cat /tmp/VERSION) \
+    && echo "PHP ${PHP_VERSION}" \
+    && apk update \
     && apk upgrade \
     && apk add \
         curl \
