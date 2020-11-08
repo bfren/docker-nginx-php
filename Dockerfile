@@ -14,7 +14,8 @@ ENV PHP_MEMORY_LIMIT="256M"
 ENV PHP_MAX_UPLOAD="64M"
 ENV PHP_MAX_POST="64M"
 
-ARG PHP_VERSION="7.4.12-r0"
+COPY ./VERSION /tmp/VERSION
+RUN export PHP_VERSION=$(cat /tmp/VERSION)
 
 RUN apk update \
     && apk upgrade \
@@ -24,6 +25,6 @@ RUN apk update \
         php7-common=${PHP_VERSION} \
         php7-fpm=${PHP_VERSION} \
         php7-session=${PHP_VERSION} \
-    && rm -rf /var/cache/apk/*
+    && rm -rf /var/cache/apk/* /tmp/*
 
 COPY ./overlay /
