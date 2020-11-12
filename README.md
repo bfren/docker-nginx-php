@@ -40,10 +40,7 @@ PHP_INI_MAX_POST="64M" # post_max_size
 
 ## Volumes
 
-* `/www` - these files will be served by Nginx
-* `/etc/nginx/conf.d` - custom Nginx configuration
-* `/etc/nginx/modules` - Nginx modules
-* `/etc/nginx/sites` - server definitions
+See the [Nginx](https://github.com/bencgreen/docker-nginx) image.
 
 ## Authors
 
