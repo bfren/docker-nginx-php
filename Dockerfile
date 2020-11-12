@@ -6,14 +6,14 @@ LABEL maintainer="Ben Green <ben@bcgdesign.com>" \
     org.label-schema.vendor="Ben Green" \
     org.label-schema.schema-version="1.0"
 
-ENV PHP_FPM_LOG_LEVEL="notice"
-ENV PHP_INI="production"
-ENV PHP_INI_DISPLAY_ERRORS=
-ENV PHP_INI_DISPLAY_STARTUP_ERRORS=
-ENV PHP_INI_ERROR_REPORTING=
-ENV PHP_INI_MEMORY_LIMIT="256M"
-ENV PHP_INI_MAX_UPLOAD="64M"
-ENV PHP_INI_MAX_POST="64M"
+ENV PHP_FPM_LOG_LEVEL="notice" \
+    PHP_INI="production" \
+    PHP_INI_DISPLAY_ERRORS= \
+    PHP_INI_DISPLAY_STARTUP_ERRORS= \
+    PHP_INI_ERROR_REPORTING= \
+    PHP_INI_MEMORY_LIMIT="256M" \
+    PHP_INI_MAX_UPLOAD="64M" \
+    PHP_INI_MAX_POST="64M"
 
 COPY ./VERSION /tmp/VERSION
 RUN export PHP_VERSION=$(cat /tmp/VERSION) \
