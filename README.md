@@ -21,7 +21,9 @@ Additionally, `bash` is installed as it is required by some of the setup scripts
 
 ## Environment Variables
 
-* `PHP_INI="production"` - defines which official template to use, "production" or "development"
+```bash
+PHP_INI="production"`# defines which official template to use, "production" or "development"
+```
 
 The following environment variables will override values in `/etc/php7/php-fpm.d/www.conf`:
 
