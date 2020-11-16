@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 echo " - starting PHP in FPM mode"
 php-fpm7 -F

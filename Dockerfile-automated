@@ -20,6 +20,7 @@ RUN export PHP_VERSION=$(cat /tmp/VERSION) \
     && echo "PHP v${PHP_VERSION}" \
     && apk -U upgrade \
     && apk add \
+        bash \
         curl \
         php7=${PHP_VERSION} \
         php7-common=${PHP_VERSION} \
