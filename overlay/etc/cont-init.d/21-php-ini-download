@@ -4,7 +4,7 @@
 # Get php.ini 
 #======================================================================================================================
 
-DOWNLOADED="~/php.ini.downloaded"
+DOWNLOADED="/etc/php7/php.ini.downloaded"
 if [ -e ${DOWNLOADED} ] ; then
     echo " - php.ini already downloaded."
     exit 0
