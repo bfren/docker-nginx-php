@@ -21,7 +21,6 @@ RUN export PHP_VERSION=$(cat /tmp/VERSION) \
     && apk -U upgrade \
     && apk add \
         bash \
-        curl \
         php7=${PHP_VERSION} \
         php7-common=${PHP_VERSION} \
         php7-fpm=${PHP_VERSION} \

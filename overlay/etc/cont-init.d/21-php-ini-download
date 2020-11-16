@@ -4,7 +4,7 @@
 # Get php.ini 
 #======================================================================================================================
 
-DOWNLOADED="/etc/php7/php.ini.downloaded"
+DOWNLOADED="~/php.ini.downloaded"
 if [ -e ${DOWNLOADED} ] ; then
     echo " - php.ini already downloaded."
     exit 0
@@ -13,7 +13,7 @@ fi
 if [ "${PHP_INI}" == "development" ] || [ "${PHP_INI}" == "production" ] ; then
     URL="https://raw.githubusercontent.com/php/php-src/master/php.ini-${PHP_INI}"
     echo " - downloading php.ini from ${URL}..."
-    curl -Ls -o "/etc/php7/php.ini" ${URL}
+    wget -O "/etc/php7/php.ini" ${URL}
     touch ${DOWNLOADED}
     echo " - done."
 fi

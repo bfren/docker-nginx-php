@@ -13,6 +13,8 @@ Nginx plus PHP (7.4.12) - no SSL support etc, designed to be used behind a proxy
 
 Nginx is setup by default to run PHP in FPM mode.
 
+Additionally, `bash` is installed as it is required by some of the setup scripts.
+
 ## Ports
 
 * 80
