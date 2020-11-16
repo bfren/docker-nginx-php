@@ -1,4 +1,4 @@
-FROM bcgdesign/nginx:1.18.0-r8
+FROM bcgdesign/nginx:1.18.0-r9
 
 LABEL maintainer="Ben Green <ben@bcgdesign.com>" \
     org.label-schema.name="Nginx + PHP" \
