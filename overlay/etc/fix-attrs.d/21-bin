@@ -1,0 +1,1 @@
+/usr/local/bin/php-clean-sessions false www:www 0500 0500
