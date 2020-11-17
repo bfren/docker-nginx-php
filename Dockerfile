@@ -25,6 +25,6 @@ RUN export PHP_VERSION=$(cat /tmp/VERSION) \
         php7-common=${PHP_VERSION} \
         php7-fpm=${PHP_VERSION} \
         php7-session=${PHP_VERSION} \
-    && rm -rf /var/cache/apk/* /var/www/* /tmp/*
+    && rm -rf /var/cache/apk/* /var/www/localhost/* /tmp/*
 
 COPY ./overlay /
