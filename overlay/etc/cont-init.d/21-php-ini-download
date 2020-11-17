@@ -10,7 +10,7 @@ if [ -e ${DOWNLOADED} ] ; then
     exit 0
 fi
 
-if [ "${PHP_INI}" == "development" ] || [ "${PHP_INI}" == "production" ] ; then
+if [ "${PHP_INI}" = "development" ] || [ "${PHP_INI}" = "production" ] ; then
     URL="https://raw.githubusercontent.com/php/php-src/master/php.ini-${PHP_INI}"
     echo " - downloading php.ini from ${URL}..."
     wget -O "/etc/php7/php.ini" ${URL}
