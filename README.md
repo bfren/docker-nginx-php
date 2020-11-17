@@ -1,6 +1,6 @@
 # Docker Nginx + PHP
 
-![Docker Image Version (tag latest semver)](https://img.shields.io/docker/v/bcgdesign/nginx-php/latest?label=latest&sort=semver) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/bencgreen/docker-nginx-php/build?label=github) ![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/bcgdesign/nginx-php?label=docker) ![Docker Pulls](https://img.shields.io/docker/pulls/bcgdesign/nginx-php?label=pulls) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/bcgdesign/nginx-php/latest?label=size)
+![Docker Image Version (latest semver)](https://img.shields.io/docker/v/bcgdesign/nginx-php?sort=semver) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/bencgreen/docker-nginx-php/build?label=github) ![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/bcgdesign/nginx-php?label=docker) ![Docker Pulls](https://img.shields.io/docker/pulls/bcgdesign/nginx-php?label=pulls) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/bcgdesign/nginx-php/latest?label=size)
 
 [Docker Repository](https://hub.docker.com/r/bcgdesign/nginx-php)
 
