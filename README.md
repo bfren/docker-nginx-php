@@ -46,10 +46,6 @@ PHP_INI_MAX_UPLOAD="64M" # upload_max_filesize
 PHP_INI_MAX_POST="64M" # post_max_size
 ```
 
-## Volumes
-
-See the [Nginx](https://github.com/bencgreen/docker-nginx) image.
-
 ## Authors
 
 * [Ben Green](https://github.com/bencgreen)
