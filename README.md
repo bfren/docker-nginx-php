@@ -19,6 +19,10 @@ Additionally, `bash` is installed as it is required by some of the setup scripts
 
 * 80
 
+## Volumes
+
+* `/www` - these files will be served by Nginx (by default there is a 'Welcome to Nginx' message served)
+
 ## Environment Variables
 
 ```bash
