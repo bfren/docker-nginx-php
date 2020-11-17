@@ -1,8 +1,8 @@
 server {
     include                         helpers/base.conf;
     index                           index.php index.html index.htm;
-    include                         helpers/nginx_error_pages.conf;
-    include                         helpers/php_try_all.conf;
-    include                         helpers/php_try_php.conf;
-    include                         helpers/static_files.conf;
+    include                         helpers/nginx-error-pages.conf;
+    include                         helpers/php-try-all.conf;
+    include                         helpers/php-try-php.conf;
+    include                         helpers/static-files.conf;
 }
