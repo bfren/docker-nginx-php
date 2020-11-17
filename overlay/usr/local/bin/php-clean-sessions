@@ -2,6 +2,6 @@
 
 php \
     -d session.gc_probability=1 \
-    -d session.gc_divisor=1 \  
+    -d session.gc_divisor=1 \
     -d session.gc_maxlifetime=${PHP_SESSION_MAX_LIFETIME} \
     -r "session_start(); session_destroy();"
