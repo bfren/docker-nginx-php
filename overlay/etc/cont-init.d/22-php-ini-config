@@ -4,7 +4,7 @@
 # Optionally override configuration
 #======================================================================================================================
 
-echo " - setting php.ini configuration values..."
+_echo "setting php.ini configuration values..."
 
 declare -A VALUES
 VALUES["display_errors"]="${PHP_INI_DISPLAY_ERRORS}"
@@ -14,7 +14,7 @@ VALUES["memory_limit"]="${PHP_INI_MEMORY_LIMIT}"
 VALUES["upload_max_filesize"]="${PHP_INI_MAX_UPLOAD}"
 VALUES["post_max_size"]="${PHP_INI_MAX_POST}"
 
-source "/etc/functions/replace.sh"
+source /etc/functions/replace.sh
 replace VALUES "/etc/php7/php.ini"
 
-echo " - done."
+_done

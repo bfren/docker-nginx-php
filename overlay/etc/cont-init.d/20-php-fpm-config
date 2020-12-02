@@ -4,7 +4,7 @@
 # Optionally override configuration
 #======================================================================================================================
 
-echo " - setting www.conf configuration values..."
+_echo "setting www.conf configuration values..."
 
 declare -A VALUES
 VALUES["listen.owner"]="www"
@@ -14,7 +14,7 @@ VALUES["user"]="www"
 VALUES["group"]="www"
 VALUES["log_level"]="${PHP_FPM_LOG_LEVEL}"
 
-source "/etc/functions/replace.sh"
+source /etc/functions/replace.sh
 replace VALUES "/etc/php7/php-fpm.d/www.conf"
 
-echo " - done."
+_done

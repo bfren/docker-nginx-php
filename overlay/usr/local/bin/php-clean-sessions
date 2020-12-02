@@ -1,5 +1,4 @@
 #!/usr/bin/with-contenv bash
-
 php \
     -d session.gc_probability=1 \
     -d session.gc_divisor=1 \
