@@ -4,7 +4,7 @@
 # Optionally override configuration
 #======================================================================================================================
 
-_echo "setting php.ini configuration values..."
+_echo "Setting php.ini configuration values..."
 
 declare -A VALUES
 VALUES["display_errors"]="${PHP_INI_DISPLAY_ERRORS}"

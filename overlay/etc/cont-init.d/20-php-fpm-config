@@ -4,7 +4,7 @@
 # Optionally override configuration
 #======================================================================================================================
 
-_echo "setting www.conf configuration values..."
+_echo "Setting www.conf configuration values..."
 
 declare -A VALUES
 VALUES["listen.owner"]="www"
