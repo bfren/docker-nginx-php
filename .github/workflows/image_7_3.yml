@@ -1,11 +1,11 @@
-name: build
+name: 7.3
 
 on:
   push:
     branches: main
 
 jobs:
-  build_7_3:
+  build:
     runs-on: ubuntu-latest
     steps:
       -
