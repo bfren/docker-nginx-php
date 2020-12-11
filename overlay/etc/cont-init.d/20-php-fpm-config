@@ -9,9 +9,6 @@ set -euo pipefail
 _echo "Setting www.conf configuration values..."
 
 declare -A VALUES
-#VALUES["listen.owner"]="www"
-#VALUES["listen.group"]="www"
-#VALUES["listen.mode"]="0660"
 VALUES["user"]="www"
 VALUES["group"]="www"
 VALUES["log_level"]="${PHP_FPM_LOG_LEVEL}"
