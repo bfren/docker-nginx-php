@@ -53,7 +53,6 @@ jobs:
           #platforms: linux/amd64,linux/arm/v7
           #platforms: linux/amd64,linux/arm64
           tags: |
-            bcgdesign/nginx-php:latest
             bcgdesign/nginx-php:${{ steps.php_minor.outputs.content }}
             bcgdesign/nginx-php:${{ steps.php_revision.outputs.content }}
             bcgdesign/nginx-php:${{ steps.version.outputs.content }}
