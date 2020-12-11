@@ -1,5 +1,7 @@
 #!/usr/bin/with-contenv bash
 
+set -euo pipefail
+
 _echo "Cleaning PHP sessions..."
 php \
     -d session.gc_probability=1 \

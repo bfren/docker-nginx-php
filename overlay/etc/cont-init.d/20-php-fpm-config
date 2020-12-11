@@ -1,5 +1,7 @@
 #!/usr/bin/with-contenv bash
 
+set -euo pipefail
+
 #======================================================================================================================
 # Optionally override configuration
 #======================================================================================================================
@@ -7,6 +9,7 @@
 _echo "Setting www.conf configuration values..."
 
 declare -A VALUES
+VALUES["listen"]="/tmp/php-fpm.sock"
 VALUES["listen.owner"]="www"
 VALUES["listen.group"]="www"
 VALUES["listen.mode"]="0660"
