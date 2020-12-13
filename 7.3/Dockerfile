@@ -2,7 +2,7 @@ FROM bcgdesign/nginx:1.18.0-r1
 
 LABEL maintainer="Ben Green <ben@bcgdesign.com>" \
     org.label-schema.name="Nginx + PHP" \
-    org.label-schema.version="latest" \
+    org.label-schema.version="7.3" \
     org.label-schema.vendor="Ben Green" \
     org.label-schema.schema-version="1.0"
 
