@@ -2,6 +2,7 @@ name: 7.3
 
 on:
   push:
+    branches: main
     paths:
       - ".github/workflows/image_7_3.yml"
       - "7.3/**"
