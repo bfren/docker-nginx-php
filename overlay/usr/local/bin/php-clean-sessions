@@ -2,6 +2,11 @@
 
 set -euo pipefail
 
+
+#======================================================================================================================
+# Hat-tip https://www.getpagespeed.com/server-setup/php/cleanup-php-sessions-like-a-pro
+#======================================================================================================================
+
 _echo "Cleaning PHP sessions..."
 php \
     -d session.gc_probability=1 \
