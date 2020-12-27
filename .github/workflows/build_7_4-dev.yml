@@ -15,30 +15,6 @@ jobs:
         name: Checkout code
         uses: actions/checkout@v2
       -
-        name: Read PHP major version
-        uses: bencgreen/read-file-action@v1
-        with:
-          path: ./7.4/PHP_MAJOR
-        id: php_major
-      -
-        name: Read PHP minor version
-        uses: bencgreen/read-file-action@v1
-        with:
-          path: ./7.4/PHP_MINOR
-        id: php_minor
-      -
-        name: Read PHP revision version
-        uses: bencgreen/read-file-action@v1
-        with:
-          path: ./7.4/PHP_REVISION
-        id: php_revision
-      -
-        name: Read version
-        uses: bencgreen/read-file-action@v1
-        with:
-          path: ./7.4/VERSION
-        id: version
-      -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       -
