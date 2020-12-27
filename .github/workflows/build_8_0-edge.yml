@@ -1,11 +1,10 @@
-name: 7.4
+name: 8.0-edge
 
 on:
   push:
-    branches: main
     paths:
-      - ".github/workflows/image_7_4.yml"
-      - "7.4/**"
+      - ".github/workflows/build_8_0-main.yml"
+      - "8.0/**"
       - "overlay/**"
 
 jobs:
@@ -19,25 +18,25 @@ jobs:
         name: Read PHP major version
         uses: bencgreen/read-file-action@v1
         with:
-          path: ./7.4/PHP_MAJOR
+          path: ./8.0/PHP_MAJOR
         id: php_major
       -
         name: Read PHP minor version
         uses: bencgreen/read-file-action@v1
         with:
-          path: ./7.4/PHP_MINOR
+          path: ./8.0/PHP_MINOR
         id: php_minor
       -
         name: Read PHP revision version
         uses: bencgreen/read-file-action@v1
         with:
-          path: ./7.4/PHP_REVISION
+          path: ./8.0/PHP_REVISION
         id: php_revision
       -
         name: Read version
         uses: bencgreen/read-file-action@v1
         with:
-          path: ./7.4/VERSION
+          path: ./8.0/VERSION
         id: version
       -
         name: Set up QEMU
@@ -57,13 +56,13 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ./7.4/Dockerfile
+          file: ./8.0/Dockerfile
           push: true
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           #platforms: linux/amd64,linux/arm/v7
           #platforms: linux/amd64,linux/arm64
           tags: |
-            bcgdesign/nginx-php:latest
+            bcgdesign/nginx-php:edge
             bcgdesign/nginx-php:${{ steps.php_major.outputs.content }}
             bcgdesign/nginx-php:${{ steps.php_minor.outputs.content }}
             bcgdesign/nginx-php:${{ steps.php_revision.outputs.content }}
