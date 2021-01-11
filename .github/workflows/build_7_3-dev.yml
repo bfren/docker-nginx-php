@@ -38,7 +38,7 @@ jobs:
           #platforms: linux/amd64,linux/arm/v7
           #platforms: linux/amd64,linux/arm64
           tags: |
-            bcgdesign/nginx-php:dev-7.3
+            bcgdesign/nginx-php:7.3-dev
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
