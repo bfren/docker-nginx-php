@@ -4,7 +4,7 @@
 
 [Docker Repository](https://hub.docker.com/r/bcgdesign/nginx-php) - [bcg|design ecosystem](https://github.com/bencgreen/docker)
 
-Nginx plus PHP (7.4.12) - no SSL support etc, designed to be used behind a proxy server.  Minimal PHP packages are installed:
+Nginx plus PHP (7.4.14) - no SSL support etc, designed to be used behind a proxy server.  Minimal PHP packages are installed:
 
 * `php7`
 * `php7-common`
