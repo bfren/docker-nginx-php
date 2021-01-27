@@ -15,29 +15,29 @@ jobs:
         name: Checkout code
         uses: actions/checkout@v2
       -
-        name: Read PHP major version
+        name: Read PHP version - major
         uses: bencgreen/read-file-action@v1
         with:
           path: ./8.0/PHP_MAJOR
         id: php_major
       -
-        name: Read PHP minor version
+        name: Read PHP version - minor
         uses: bencgreen/read-file-action@v1
         with:
           path: ./8.0/PHP_MINOR
         id: php_minor
       -
-        name: Read PHP revision version
+        name: Read PHP version - revision
         uses: bencgreen/read-file-action@v1
         with:
           path: ./8.0/PHP_REVISION
         id: php_revision
       -
-        name: Read version
+        name: Read PHP version - build
         uses: bencgreen/read-file-action@v1
         with:
-          path: ./8.0/VERSION
-        id: version
+          path: ./8.0/PHP_BUILD
+        id: php_build
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
@@ -63,10 +63,10 @@ jobs:
           #platforms: linux/amd64,linux/arm64
           tags: |
             bcgdesign/nginx-php:edge
-            bcgdesign/nginx-php:${{ steps.php_major.outputs.content }}
-            bcgdesign/nginx-php:${{ steps.php_minor.outputs.content }}
-            bcgdesign/nginx-php:${{ steps.php_revision.outputs.content }}
-            bcgdesign/nginx-php:${{ steps.version.outputs.content }}
+            bcgdesign/nginx-php:php-${{ steps.php_major.outputs.content }}
+            bcgdesign/nginx-php:php-${{ steps.php_minor.outputs.content }}
+            bcgdesign/nginx-php:php-${{ steps.php_revision.outputs.content }}
+            bcgdesign/nginx-php:php-${{ steps.php_build.outputs.content }}
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}

@@ -16,8 +16,8 @@ ENV PHP_FPM_LOG_LEVEL="notice" \
     PHP_INI_MAX_UPLOAD="64M" \
     PHP_SESSION_MAX_LIFETIME=86400
 
-COPY ./8.0/VERSION /tmp/VERSION
-RUN export PHP_VERSION=$(cat /tmp/VERSION) \
+COPY ./8.0/PHP_BUILD /tmp/PHP_BUILD
+RUN export PHP_VERSION=$(cat /tmp/PHP_BUILD) \
     && echo "PHP v${PHP_VERSION}" \
     && apk -U upgrade \
     && apk add \
