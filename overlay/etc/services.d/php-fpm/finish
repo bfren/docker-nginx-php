@@ -1,2 +1,2 @@
-#!/bin/bash
-s6-svscanctl -t /var/run/s6/services
+#!/usr/bin/with-contenv bash
+_terminate
