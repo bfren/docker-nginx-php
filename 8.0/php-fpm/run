@@ -1,0 +1,3 @@
+#!/usr/bin/with-contenv bash
+_echo "Starting PHP in FPM mode"
+php-fpm8 -F

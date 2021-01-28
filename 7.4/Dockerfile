@@ -16,6 +16,8 @@ ENV PHP_FPM_LOG_LEVEL="notice" \
     PHP_INI_MAX_UPLOAD="64M" \
     PHP_SESSION_MAX_LIFETIME=86400
 
+ENV PHP_DIR=/etc/php7
+
 COPY ./7.4/PHP_BUILD /tmp/PHP_BUILD
 RUN export PHP_VERSION=$(cat /tmp/PHP_BUILD) \
     && echo "PHP v${PHP_VERSION}" \
@@ -29,3 +31,4 @@ RUN export PHP_VERSION=$(cat /tmp/PHP_BUILD) \
     && rm -rf /var/cache/apk/* /www/* /tmp/*
 
 COPY ./overlay /
+COPY ./7.4/php-fpm /etc/services.d/php-fpm
