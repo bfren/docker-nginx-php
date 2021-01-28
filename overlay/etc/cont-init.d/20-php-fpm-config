@@ -15,6 +15,6 @@ VALUES["group"]="www"
 VALUES["log_level"]="${PHP_FPM_LOG_LEVEL}"
 
 source /etc/functions/replace.sh
-replace VALUES "/etc/php7/php-fpm.d/www.conf"
+replace VALUES "${PHP_DIR}/php-fpm.d/www.conf"
 
 _done
