@@ -2,6 +2,10 @@ name: 8.0-edge
 
 on:
   push:
+    branches:
+      - '**'
+    tags-ignore:
+      - '**'
     paths:
       - ".github/workflows/build_8_0-edge.yml"
       - "8.0/**"

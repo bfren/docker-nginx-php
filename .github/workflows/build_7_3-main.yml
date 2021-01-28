@@ -2,7 +2,10 @@ name: 7.3-main
 
 on:
   push:
-    branches: main
+    branches:
+      - 'main'
+    tags-ignore:
+      - '**'
     paths:
       - ".github/workflows/build_7_3-main.yml"
       - "7.3/**"
