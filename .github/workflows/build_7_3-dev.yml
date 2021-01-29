@@ -7,9 +7,9 @@ on:
     tags-ignore:
       - '**'
     paths:
-      - ".github/workflows/build_7_3-dev.yml"
-      - "7.3/**"
-      - "overlay/**"
+      - '.github/workflows/build_7_3-dev.yml'
+      - '7.3/**'
+      - 'overlay/**'
 
 jobs:
   build:
