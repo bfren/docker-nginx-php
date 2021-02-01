@@ -1,4 +1,4 @@
-FROM bcgdesign/nginx:1.1.0
+FROM bcgdesign/nginx:1.2.0
 
 LABEL maintainer="Ben Green <ben@bcgdesign.com>" \
     org.label-schema.name="Nginx + PHP" \
@@ -24,10 +24,10 @@ RUN export PHP_VERSION=$(cat /tmp/PHP_BUILD) \
     && apk -U upgrade \
     && apk add \
         bash \
-        php8@edgecomm=${PHP_VERSION} \
-        php8-common@edgecomm=${PHP_VERSION} \
-        php8-fpm@edgecomm=${PHP_VERSION} \
-        php8-session@edgecomm=${PHP_VERSION} \
+        php8=${PHP_VERSION} \
+        php8-common=${PHP_VERSION} \
+        php8-fpm=${PHP_VERSION} \
+        php8-session=${PHP_VERSION} \
     && rm -rf /var/cache/apk/* /www/* /tmp/*
 
 COPY ./overlay /
