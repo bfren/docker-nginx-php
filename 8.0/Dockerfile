@@ -28,6 +28,7 @@ RUN export PHP_VERSION=$(cat /tmp/PHP_BUILD) \
         php8-common=${PHP_VERSION} \
         php8-fpm=${PHP_VERSION} \
         php8-session=${PHP_VERSION} \
+    && ln -s /usr/bin/php8 /usr/bin/php \
     && rm -rf /var/cache/apk/* /www/* /tmp/*
 
 COPY ./overlay /
