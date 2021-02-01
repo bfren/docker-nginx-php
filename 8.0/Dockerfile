@@ -31,4 +31,5 @@ RUN export PHP_VERSION=$(cat /tmp/PHP_BUILD) \
     && rm -rf /var/cache/apk/* /www/* /tmp/*
 
 COPY ./overlay /
+COPY ./overlay-nginx-conf /etc/nginx/http.d
 COPY ./8.0/php-fpm /etc/services.d/php-fpm
