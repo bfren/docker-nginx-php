@@ -10,6 +10,7 @@ on:
       - '.github/workflows/build_7_4-main.yml'
       - '7.4/**'
       - 'overlay/**'
+      - 'VERSION'
 
 jobs:
   build:
