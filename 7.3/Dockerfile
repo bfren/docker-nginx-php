@@ -36,4 +36,4 @@ COPY ./overlay-nginx-conf /etc/nginx/conf.d
 COPY ./7.3/php-fpm /etc/services.d/php-fpm
 
 # fix for using with old Nginx image
-RUN rm /etc/nginx/localhost
+RUN rm /etc/nginx/sites/localhost
