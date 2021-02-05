@@ -4,7 +4,7 @@
 
 [Docker Repository](https://hub.docker.com/r/bcgdesign/nginx-php) - [bcg|design ecosystem](https://github.com/bencgreen/docker)
 
-Nginx plus PHP (7.3.26, 7.4.14, and 8.0.1) - no SSL support etc, designed to be used behind a proxy server.  Minimal PHP packages are installed:
+Nginx plus PHP (7.3.26, 7.4.15, and 8.0.2) - no SSL support etc, designed to be used behind a proxy server.  Minimal PHP packages are installed:
 
 * `php7` or `php8`
 * `php7-common` or `php8-common`
@@ -76,5 +76,5 @@ The following environment variables will override values in `php-fpm.d/www.conf`
 
 ## Copyright
 
-> Copyright (c) 2021 Ben Green <https://bcgdesign.com>  
+> Copyright (c) 2021 Ben Green <https://bcgdesign.com>
 > Unless otherwise stated
