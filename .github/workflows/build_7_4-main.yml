@@ -20,18 +20,6 @@ jobs:
         name: Checkout code
         uses: actions/checkout@v2
       -
-        name: Read PHP version - major
-        uses: bencgreen/read-file-action@v1
-        with:
-          path: ./7.4/PHP_MAJOR
-        id: php_major
-      -
-        name: Read PHP version - minor
-        uses: bencgreen/read-file-action@v1
-        with:
-          path: ./7.4/PHP_MINOR
-        id: php_minor
-      -
         name: Read PHP version - revision
         uses: bencgreen/read-file-action@v1
         with:
@@ -75,8 +63,8 @@ jobs:
           tags: |
             bcgdesign/nginx-php:latest
             bcgdesign/nginx-php:${{ steps.version.outputs.content }}
-            bcgdesign/nginx-php:php-${{ steps.php_major.outputs.content }}
-            bcgdesign/nginx-php:php-${{ steps.php_minor.outputs.content }}
+            bcgdesign/nginx-php:php-7
+            bcgdesign/nginx-php:php-7.4
             bcgdesign/nginx-php:php-${{ steps.php_revision.outputs.content }}
             bcgdesign/nginx-php:php-${{ steps.php_build.outputs.content }}
       -

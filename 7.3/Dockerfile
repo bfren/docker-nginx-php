@@ -1,5 +1,4 @@
-# Use version from Alpine 3.12 branch
-FROM bcgdesign/nginx:1.1.0
+FROM bcgdesign/nginx:alpine-3.12-1.2.2
 
 LABEL maintainer="Ben Green <ben@bcgdesign.com>" \
     org.label-schema.name="Nginx + PHP" \
