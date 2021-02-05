@@ -64,7 +64,9 @@ jobs:
             bcgdesign/nginx-php:latest
             bcgdesign/nginx-php:${{ steps.version.outputs.content }}
             bcgdesign/nginx-php:php-7
+            bcgdesign/nginx-php:php-7-${{ steps.version.outputs.content }}
             bcgdesign/nginx-php:php-7.4
+            bcgdesign/nginx-php:php-7.4-${{ steps.version.outputs.content }}
             bcgdesign/nginx-php:php-${{ steps.php_revision.outputs.content }}
             bcgdesign/nginx-php:php-${{ steps.php_build.outputs.content }}
       -

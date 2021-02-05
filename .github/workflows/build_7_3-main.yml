@@ -32,6 +32,12 @@ jobs:
           path: ./7.3/PHP_BUILD
         id: php_build
       -
+        name: Read image version
+        uses: bencgreen/read-file-action@v1
+        with:
+          path: ./VERSION
+        id: version
+      -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       -
@@ -56,6 +62,7 @@ jobs:
           #platforms: linux/amd64,linux/arm64
           tags: |
             bcgdesign/nginx-php:php-7.3
+            bcgdesign/nginx-php:php-7.3-${{ steps.version.outputs.content }}
             bcgdesign/nginx-php:php-${{ steps.php_revision.outputs.content }}
             bcgdesign/nginx-php:php-${{ steps.php_build.outputs.content }}
       -

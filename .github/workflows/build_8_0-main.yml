@@ -62,7 +62,9 @@ jobs:
           #platforms: linux/amd64,linux/arm64
           tags: |
             bcgdesign/nginx-php:php-8
+            bcgdesign/nginx-php:php-8-${{ steps.version.outputs.content }}
             bcgdesign/nginx-php:php-8.0
+            bcgdesign/nginx-php:php-8.0-${{ steps.version.outputs.content }}
             bcgdesign/nginx-php:php-${{ steps.php_revision.outputs.content }}
             bcgdesign/nginx-php:php-${{ steps.php_build.outputs.content }}
       -
