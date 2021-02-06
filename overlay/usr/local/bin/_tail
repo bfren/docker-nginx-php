@@ -1,0 +1,8 @@
+#!/bin/sh
+set -euo pipefail
+[[ -z ${1+x} ]] && _error "_tail: You must supply a log file."
+
+if [[ -e ${1} ]] ; then
+    _echo "Forwarding ${1} to Docker"
+    exec tail -F ${1}
+fi

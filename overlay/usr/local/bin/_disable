@@ -1,0 +1,7 @@
+#!/bin/sh
+set -euo pipefail
+[[ -z ${1+x} ]] && _error "_tail: You must supply a log file."
+
+_echo "Disabling ${1} service..."
+s6-svc -d /var/run/s6/services/${1}
+_done
