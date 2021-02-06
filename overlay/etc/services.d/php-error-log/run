@@ -1,8 +1,3 @@
 #!/usr/bin/with-contenv bash
 set -euo pipefail
-
-[[ -z "${PHP_INI_ERROR_LOG}" ]] && _disable "php-error-log"
-
-_echo "Forwarding PHP log file"
-_forward "${PHP_INI_ERROR_LOG}s"
-exec sleep 5
+_forward "php-error-log" "${PHP_INI_ERROR_LOG}"

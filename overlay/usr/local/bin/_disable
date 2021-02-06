@@ -3,8 +3,8 @@ set -euo pipefail
 [[ -z ${1+x} ]] && _error "_disable: You must supply the name of a service."
 
 SVC=/var/run/s6/services/${1}
-[[ ! -e ${SVC} ]] && _error "_disable: Service '${SVC}' does not exist."
+[[ ! -e ${SVC} ]] && _error "_disable: Service ${1} does not exist."
 
-_echo "_disable: Disabling ${1} service..."
+_echo "Disabling ${1} service..."
 s6-svc -d ${SVC}
 _done
