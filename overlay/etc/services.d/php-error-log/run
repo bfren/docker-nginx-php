@@ -1,0 +1,12 @@
+#!/usr/bin/with-contenv bash
+_echo "Starting PHP in FPM mode"
+set -euo pipefail
+
+[[ -z "${PHP_INI_ERROR_LOG}" ]] && _disable "php-error-log"
+
+if [ -e ${PHP_INI_ERROR_LOG} ]; then
+    _tail "${PHP_INI_ERROR_LOG}"
+else
+    # wait for service to start and create log file
+    exec sleep 5
+fi

@@ -1,1 +1,3 @@
 /usr/local/bin/php-clean-sessions false www:www 0500 0500
+/usr/local/bin/_disable false root:root 0500 0500
+/usr/local/bin/_tail false root:root 0500 0500
