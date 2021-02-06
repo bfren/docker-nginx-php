@@ -3,9 +3,6 @@ set -euo pipefail
 
 [[ -z "${PHP_INI_ERROR_LOG}" ]] && _disable "php-error-log"
 
-if [ -e ${PHP_INI_ERROR_LOG} ]; then
-    _forward "${PHP_INI_ERROR_LOG}"
-else
-    # wait for service to start and create log file
-    exec sleep 5
-fi
+_echo "Forwarding PHP log file"
+_forward "${PHP_INI_ERROR_LOG}"
+exec sleep 5
