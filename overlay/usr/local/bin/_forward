@@ -9,6 +9,7 @@ if [[ -e ${2} ]] ; then
     _echo "_forward: ${2}"
     exec tail -F ${2}
 else
-    _echo "_forward: ${2} not found, sleeping"
-    sleep 5
+    SLEEP=5
+    _echo "_forward: ${2} not found, sleeping for ${SLEEP}s"
+    sleep ${SLEEP}
 fi
