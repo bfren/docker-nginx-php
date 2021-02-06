@@ -1,7 +1,7 @@
 #!/bin/sh
 set -euo pipefail
 [[ -z ${1+x} ]] && _error "_forward: You must supply the name of the log service."
-[[ -z ${2+x} ]] && _error "_forward: Log file not defined, disabling ${1}" && _disable "${1}"
+[[ -z ${2+x} || -z "${2}" ]] && _echo "_forward: Log file not defined, disabling ${1}" && _disable "${1}" && exit 0
 
 _echo "Forwarding ${1}"
 
