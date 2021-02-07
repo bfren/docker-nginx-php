@@ -1,3 +1,12 @@
 #!/usr/bin/with-contenv bash
-_echo "Starting PHP in FPM mode"
+
+set -euo pipefail
+
+
+#======================================================================================================================
+# Start PHP FastCGI Process Manager
+#   -F  run in foreground mode (allows S6 to supervise the service)
+#======================================================================================================================
+
+_echo "Starting PHP FastCGI Process Manager"
 php-fpm7 -F

@@ -4,17 +4,7 @@ set -euo pipefail
 
 
 #======================================================================================================================
-# Optionally override configuration
+# Forward PHP errors to Docker
 #======================================================================================================================
 
-_echo "Setting www.conf configuration values..."
-
-declare -A VALUES
-VALUES["user"]="www"
-VALUES["group"]="www"
-VALUES["log_level"]="${PHP_FPM_LOG_LEVEL-}"
-
-source /etc/functions/replace.sh
-replace VALUES "${PHP_DIR}/php-fpm.d/www.conf"
-
-_done
+_forward "php-error-log" "${PHP_INI_ERROR_LOG}"
