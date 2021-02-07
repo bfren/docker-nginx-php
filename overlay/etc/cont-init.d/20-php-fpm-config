@@ -12,7 +12,7 @@ _echo "Setting www.conf configuration values..."
 declare -A VALUES
 VALUES["user"]="www"
 VALUES["group"]="www"
-VALUES["log_level"]="${PHP_FPM_LOG_LEVEL}"
+VALUES["log_level"]="${PHP_FPM_LOG_LEVEL-}"
 
 source /etc/functions/replace.sh
 replace VALUES "${PHP_DIR}/php-fpm.d/www.conf"
