@@ -38,8 +38,7 @@ jobs:
           context: .
           file: ./7.3/Dockerfile
           push: true
-          #platforms: linux/amd64,linux/arm/v7,linux/arm64
-          platforms: linux/amd64
+          platforms: linux/amd64,linux/arm/v7,linux/arm64
           tags: |
             bcgdesign/nginx-php:dev-php-7.3
       -
