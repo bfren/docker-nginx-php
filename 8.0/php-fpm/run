@@ -8,5 +8,6 @@ set -euo pipefail
 #   -F  run in foreground mode (allows S6 to supervise the service)
 #======================================================================================================================
 
-_echo "Starting PHP FastCGI Process Manager"
+VERSION=$(php -r "echo PHP_VERSION;")
+_echo "Starting PHP v${VERSION} - FastCGI Process Manager"
 php-fpm8 -F
