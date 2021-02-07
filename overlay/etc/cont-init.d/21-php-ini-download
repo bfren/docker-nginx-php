@@ -4,7 +4,7 @@ set -euo pipefail
 
 
 #======================================================================================================================
-# Get php.ini 
+# Get php.ini
 #======================================================================================================================
 
 DOWNLOADED="${PHP_DIR}/php.ini-${PHP_INI}.downloaded"
@@ -14,9 +14,15 @@ if [ -e ${DOWNLOADED} ] ; then
 fi
 
 if [ "${PHP_INI}" = "development" ] || [ "${PHP_INI}" = "production" ] ; then
+
     URL="https://raw.githubusercontent.com/php/php-src/master/php.ini-${PHP_INI}"
     _echo "Downloading php.ini from ${URL}..."
     wget -O "${PHP_DIR}/php.ini" ${URL} \
         && touch ${DOWNLOADED}
     _done
+
+else
+
+    _error "Unsupported PHP_INI value: '${PHP_INI}'."
+
 fi
