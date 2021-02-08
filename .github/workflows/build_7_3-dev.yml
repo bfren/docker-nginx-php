@@ -30,17 +30,17 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      # -
-      #   name: Build and push
-      #   id: docker_build
-      #   uses: docker/build-push-action@v2
-      #   with:
-      #     context: .
-      #     file: ./7.3/Dockerfile
-      #     push: true
-      #     platforms: linux/amd64,linux/arm/v7,linux/arm64
-      #     tags: |
-      #       bcgdesign/nginx-php:dev-php-7.3
-      # -
-      #   name: Image digest
-      #   run: echo ${{ steps.docker_build.outputs.digest }}
+      -
+        name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./7.3/Dockerfile
+          push: true
+          platforms: linux/amd64,linux/arm/v7,linux/arm64
+          tags: |
+            bcgdesign/nginx-php:dev-php-7.3
+      -
+        name: Image digest
+        run: echo ${{ steps.docker_build.outputs.digest }}
