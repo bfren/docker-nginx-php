@@ -4,7 +4,7 @@
 
 [Docker Repository](https://hub.docker.com/r/bcgdesign/nginx-php) - [bcg|design ecosystem](https://github.com/bencgreen/docker)
 
-Nginx plus PHP (7.3.26, 7.4.15, and 8.0.2) - no SSL support etc, designed to be used behind a proxy server.  Minimal PHP packages are installed:
+Nginx plus PHP (7.3.27, 7.4.15, and 8.0.2) - no SSL support etc, designed to be used behind a proxy server.  Minimal PHP packages are installed:
 
 * `php7` or `php8`
 * `php7-common` or `php8-common`
@@ -21,6 +21,7 @@ Additionally, `bash` is installed as it is required by some of the setup scripts
 * [Volumes](#volumes)
 * [Environment Variables](#environment-variables)
 * [Helper Functions](#helper-functions)
+* [Nginx Configuration Helpers](#nginx-configuration-helpers)
 * [Authors / Licence / Copyright](#authors)
 
 ## Ports
@@ -65,6 +66,15 @@ The following environment variables will override values in `php-fpm.d/www.conf`
 | Function             | Arguments | Description                                                 |
 | -------------------- | --------- | ----------------------------------------------------------- |
 | `php-clean-sessions` | *None*    | Cleans PHP session information - the cron runs this hourly. |
+
+## Nginx Configuration Helpers
+
+The image contains a handful of useful Nginx configuration 'helper' files, which you can find in `/overlay/etc/nginx/helpers`.  They all begin with the prefix 'php':
+
+| Helper          | Description                                                |
+| --------------- | ---------------------------------------------------------- |
+| `-try-all.conf` | Enables SEO-friendly URLs (e.g. without `index.php`).      |
+| `-try-php.conf` | Sends the request to upstream PHP FastCGI Process Manager. |
 
 ## Authors
 
