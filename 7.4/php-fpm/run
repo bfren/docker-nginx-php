@@ -9,5 +9,5 @@ set -euo pipefail
 #======================================================================================================================
 
 VERSION=$(php -r "echo PHP_VERSION;")
-_echo "Starting PHP v${VERSION} - FastCGI Process Manager"
+bcg-echo "Starting PHP v${VERSION} - FastCGI Process Manager"
 php-fpm7 -F

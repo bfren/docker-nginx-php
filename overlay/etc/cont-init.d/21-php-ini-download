@@ -9,20 +9,20 @@ set -euo pipefail
 
 DOWNLOADED="${PHP_DIR}/php.ini-${PHP_INI}.downloaded"
 if [ -e ${DOWNLOADED} ] ; then
-    _ok "php.ini already downloaded."
+    bcg-ok "php.ini already downloaded."
     exit 0
 fi
 
 if [ "${PHP_INI}" = "development" ] || [ "${PHP_INI}" = "production" ] ; then
 
     URL="https://raw.githubusercontent.com/php/php-src/master/php.ini-${PHP_INI}"
-    _echo "Downloading php.ini from ${URL}..."
+    bcg-echo "Downloading php.ini from ${URL}..."
     wget -O "${PHP_DIR}/php.ini" ${URL} \
         && touch ${DOWNLOADED}
-    _done
+    bcg-done
 
 else
 
-    _error "Unsupported PHP_INI value: '${PHP_INI}'."
+    bcg-error "Unsupported PHP_INI value: '${PHP_INI}'."
 
 fi

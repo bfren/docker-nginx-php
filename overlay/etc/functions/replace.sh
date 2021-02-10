@@ -18,7 +18,7 @@ replace () {
     for KEY in ${!A[@]} ; do
         VAL=${A[$KEY]}
         if [ ! -z "${VAL}" ] ; then
-            #_echo " - ${KEY}=${VAL}"
+            #bcg-echo " - ${KEY}=${VAL}"
             sed -i "s|^;\?${KEY}.*$|${KEY} = ${VAL}|i" ${FILE}
         fi
     done
