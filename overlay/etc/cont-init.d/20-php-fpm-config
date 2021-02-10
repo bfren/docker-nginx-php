@@ -7,7 +7,7 @@ set -euo pipefail
 # Optionally override configuration
 #======================================================================================================================
 
-_echo "Setting www.conf configuration values..."
+bcg-echo "Setting www.conf configuration values..."
 
 declare -A VALUES
 VALUES["user"]="www"
@@ -17,4 +17,4 @@ VALUES["log_level"]="${PHP_FPM_LOG_LEVEL-}"
 source /etc/functions/replace.sh
 replace VALUES "${PHP_DIR}/php-fpm.d/www.conf"
 
-_done
+bcg-done

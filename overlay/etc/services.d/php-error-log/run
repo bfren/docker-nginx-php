@@ -7,4 +7,4 @@ set -euo pipefail
 # Forward PHP errors to Docker
 #======================================================================================================================
 
-_forward "php-error-log" "${PHP_INI_ERROR_LOG}"
+bcg-forward "php-error-log" "${PHP_INI_ERROR_LOG}"

@@ -7,7 +7,7 @@ set -euo pipefail
 # Optionally override configuration
 #======================================================================================================================
 
-_echo "Setting php.ini configuration values..."
+bcg-echo "Setting php.ini configuration values..."
 
 declare -A VALUES
 VALUES["display_errors"]="${PHP_INI_DISPLAY_ERRORS-}"
@@ -22,4 +22,4 @@ VALUES["upload_max_filesize"]="${PHP_INI_MAX_UPLOAD-}"
 source /etc/functions/replace.sh
 replace VALUES "${PHP_DIR}/php.ini"
 
-_done
+bcg-done
