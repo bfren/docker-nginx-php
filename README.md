@@ -30,9 +30,9 @@ Additionally, `bash` is installed as it is required by some of the setup scripts
 
 ## Volumes
 
-| Volume   | Purpose           |
-| -------- | ----------------- |
-| `/www`   | *From base image* |
+| Volume   | Purpose            |
+| -------- | ------------------ |
+| `/www`   | *From base image.* |
 
 ## Environment Variables
 
