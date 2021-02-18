@@ -1,1 +1,2 @@
 /etc/periodic/hourly/php-clean-sessions false root:root 0500 0500
+/usr/local/bin/php-* false www:www 0500 0500
