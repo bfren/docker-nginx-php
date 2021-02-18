@@ -2,14 +2,15 @@ name: 8.0-dev
 
 on:
   push:
-    branches:
-      - '**'
+    branches-ignore:
+      - 'main'
     tags-ignore:
       - '**'
     paths:
       - '.github/workflows/build_8_0-main.yml'
       - '8.0/**'
       - 'overlay/**'
+      - 'VERSION'
 
 jobs:
   build:
@@ -18,6 +19,12 @@ jobs:
       -
         name: Checkout code
         uses: actions/checkout@v2
+      -
+        name: Read image version
+        uses: bencgreen/read-file-action@v1
+        with:
+          path: ./VERSION
+        id: version
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
@@ -43,6 +50,8 @@ jobs:
             bcgdesign/nginx-php:dev
             bcgdesign/nginx-php:dev-php-8
             bcgdesign/nginx-php:dev-php-8.0
+            bcgdesign/nginx-php:php-8-${{ steps.version.outputs.content }}
+            bcgdesign/nginx-php:php-8.0-${{ steps.version.outputs.content }}
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
