@@ -1,14 +1,12 @@
-#!/bin/sh
+#!/usr/bin/with-contenv bash
 
 set -euo pipefail
+export BCG_E=`basename ${0}`
 
 
 #======================================================================================================================
-# Install PHP8 and create symlink.
+# Add environment variables.
 #======================================================================================================================
 
-apk add --no-cache \
-    php7=${1} \
-    php7-common=${1} \
-    php7-fpm=${1} \
-    php7-session=${1}
+# PHP directory
+bcg-env "PHP_DIR" "/etc/php7"
