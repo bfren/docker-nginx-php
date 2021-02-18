@@ -1,10 +1,11 @@
 #!/usr/bin/with-contenv bash
 
 set -euo pipefail
+export BCG_E=`basename ${0}`
 
 
 #======================================================================================================================
-# Optionally override configuration
+# Optionally override configuration.
 #======================================================================================================================
 
 bcg-echo "Setting php.ini configuration values..."
@@ -19,7 +20,7 @@ VALUES["post_max_size"]="${PHP_INI_MAX_POST-}"
 VALUES["session.gc_maxlifetime"]="${PHP_SESSION_MAX_LIFETIME-}"
 VALUES["upload_max_filesize"]="${PHP_INI_MAX_UPLOAD-}"
 
-source /etc/functions/replace.sh
-replace VALUES "${PHP_DIR}/php.ini"
+source ${LIB_INC}/replace-ini.sh
+replace-ini VALUES ${PHP_DIR}/php.ini
 
 bcg-done

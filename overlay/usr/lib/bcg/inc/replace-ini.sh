@@ -1,24 +1,27 @@
-#!/bin/bash
+#!/bin/sh
+
+set -euo pipefail
+
 
 #======================================================================================================================
 # Replace configuration values in a file.
 #
 # Arguments:
-#   1   array of key/value pairs
+#   1   name of array of key/value pairs
 #   2   path to the configuration file
 #======================================================================================================================
 
-replace () {
+replace-ini () {
 
     # get array and file
-    local -n A=${1}
+    local -n ARR=${1}
     FILE=${2}
 
     # loop
     for KEY in ${!A[@]} ; do
-        VAL=${A[$KEY]}
+        VAL=${ARR[$KEY]}
         if [ ! -z "${VAL}" ] ; then
-            #bcg-echo " - ${KEY}=${VAL}"
+            bcg-debug "${KEY}=${VAL}." "replace-ini"
             sed -i "s|^;\?${KEY}.*$|${KEY} = ${VAL}|i" ${FILE}
         fi
     done

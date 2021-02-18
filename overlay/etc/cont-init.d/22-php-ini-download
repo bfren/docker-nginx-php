@@ -1,15 +1,16 @@
 #!/usr/bin/with-contenv bash
 
 set -euo pipefail
+export BCG_E=`basename ${0}`
 
 
 #======================================================================================================================
-# Get php.ini
+# Get php.ini.
 #======================================================================================================================
 
 DOWNLOADED="${PHP_DIR}/php.ini-${PHP_INI}.downloaded"
 if [ -e ${DOWNLOADED} ] ; then
-    bcg-ok "php.ini already downloaded."
+    bcg-debug "php.ini already downloaded."
     exit 0
 fi
 
@@ -17,12 +18,11 @@ if [ "${PHP_INI}" = "development" ] || [ "${PHP_INI}" = "production" ] ; then
 
     URL="https://raw.githubusercontent.com/php/php-src/master/php.ini-${PHP_INI}"
     bcg-echo "Downloading php.ini from ${URL}..."
-    wget -O "${PHP_DIR}/php.ini" ${URL} \
+    wget -O ${PHP_DIR}/php.ini ${URL} \
         && touch ${DOWNLOADED}
     bcg-done
-
-else
-
-    bcg-error "Unsupported PHP_INI value: '${PHP_INI}'."
+    exit 0
 
 fi
+
+bcg-error "Unsupported PHP_INI value '${PHP_INI}'."
