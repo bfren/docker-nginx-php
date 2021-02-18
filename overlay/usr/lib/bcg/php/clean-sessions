@@ -5,7 +5,13 @@ export BCG_E=`basename ${0}`
 
 
 #======================================================================================================================
-# Call php-clean-sessions executable
+# Hat-tip https://www.getpagespeed.com/server-setup/php/cleanup-php-sessions-like-a-pro
 #======================================================================================================================
 
-php-clean-sessions
+bcg-echo "Cleaning PHP sessions..."
+php \
+    -d session.gc_probability=1 \
+    -d session.gc_divisor=1 \
+    -d session.gc_maxlifetime=${PHP_SESSION_MAX_LIFETIME} \
+    -r "session_start(); session_destroy();"
+bcg-done
