@@ -1,4 +1,4 @@
-FROM bcgdesign/nginx:alpine-3.13-1.4.2
+FROM bcgdesign/nginx:alpine-3.13-1.5.0
 
 LABEL maintainer="Ben Green <ben@bcgdesign.com>" \
     org.label-schema.name="Nginx + PHP" \
@@ -17,21 +17,8 @@ ENV PHP_FPM_LOG_LEVEL="notice" \
     PHP_INI_MAX_UPLOAD="64M" \
     PHP_SESSION_MAX_LIFETIME=86400
 
-ENV PHP_DIR=/etc/php8
-
-COPY ./8.0/PHP_BUILD /tmp/PHP_BUILD
-RUN export PHP_VERSION=$(cat /tmp/PHP_BUILD) \
-    && echo "PHP v${PHP_VERSION}" \
-    && apk -U upgrade \
-    && apk add \
-        bash \
-        php8=${PHP_VERSION} \
-        php8-common=${PHP_VERSION} \
-        php8-fpm=${PHP_VERSION} \
-        php8-session=${PHP_VERSION} \
-    && ln -s /usr/bin/php8 /usr/bin/php \
-    && rm -rf /var/cache/apk/* /www/* /tmp/*
-
 COPY ./overlay /
-COPY ./overlay-nginx-conf /etc/nginx/http.d
-COPY ./8.0/php-fpm /etc/services.d/php-fpm
+COPY ./8.0/overlay /
+COPY ./8.0/PHP_BUILD /tmp/VERSION
+
+RUN bcg-install

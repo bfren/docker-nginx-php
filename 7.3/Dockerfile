@@ -1,4 +1,4 @@
-FROM bcgdesign/nginx:alpine-3.12-1.4.2
+FROM bcgdesign/nginx:alpine-3.12-1.5.0
 
 LABEL maintainer="Ben Green <ben@bcgdesign.com>" \
     org.label-schema.name="Nginx + PHP" \
@@ -17,20 +17,8 @@ ENV PHP_FPM_LOG_LEVEL="notice" \
     PHP_INI_MAX_UPLOAD="64M" \
     PHP_SESSION_MAX_LIFETIME=86400
 
-ENV PHP_DIR=/etc/php7
-
-COPY ./7.3/PHP_BUILD /tmp/PHP_BUILD
-RUN export PHP_VERSION=$(cat /tmp/PHP_BUILD) \
-    && echo "PHP v${PHP_VERSION}" \
-    && apk -U upgrade \
-    && apk add \
-        bash \
-        php7=${PHP_VERSION} \
-        php7-common=${PHP_VERSION} \
-        php7-fpm=${PHP_VERSION} \
-        php7-session=${PHP_VERSION} \
-    && rm -rf /var/cache/apk/* /www/* /tmp/*
-
 COPY ./overlay /
-COPY ./overlay-nginx-conf /etc/nginx/conf.d
-COPY ./7.3/php-fpm /etc/services.d/php-fpm
+COPY ./7.3/overlay /
+COPY ./7.3/PHP_BUILD /tmp/VERSION
+
+RUN bcg-install
