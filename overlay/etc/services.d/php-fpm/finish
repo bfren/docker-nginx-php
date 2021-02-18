@@ -1,10 +1,11 @@
 #!/usr/bin/with-contenv bash
 
 set -euo pipefail
+export BCG_E="php-fpm/$(basename ${0})"
 
 
 #======================================================================================================================
 # Use base executable to terminate all services
 #======================================================================================================================
 
-bcg-terminate
+bcg-svc-terminate
