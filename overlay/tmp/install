@@ -15,7 +15,7 @@ bcg-debug "PHP version ${VERSION}."
 
 
 #======================================================================================================================
-# Install PHP dependencies.
+# Install PHP dependencies and packages.
 #======================================================================================================================
 
 bcg-echo "Installing dependencies..."
@@ -23,13 +23,8 @@ apk add --no-cache \
     bash
 bcg-done
 
-
-#======================================================================================================================
-# Install PHP packages.
-#======================================================================================================================
-
 bcg-echo "Installing PHP v${VERSION}..."
-chmod +x ./install-php && install-php ${VERSION}
+chmod +x ./install-php && ./install-php ${VERSION}
 bcg-done
 
 
