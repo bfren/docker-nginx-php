@@ -10,7 +10,7 @@ export BCG_E=`basename ${0}`
 
 DOWNLOADED="${PHP_DIR}/php.ini-${PHP_INI}.downloaded"
 if [ -e ${DOWNLOADED} ] ; then
-    bcg-debug "php.ini already downloaded."
+    bcg-done
     exit 0
 fi
 
