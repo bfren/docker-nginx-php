@@ -15,7 +15,7 @@ VALUES["user"]="www"
 VALUES["group"]="www"
 VALUES["log_level"]="${PHP_FPM_LOG_LEVEL-}"
 
-source ${LIB_INC}/replace-ini.sh
+source ${LIB_INC}/php-replace-ini.sh
 replace-ini VALUES ${PHP_DIR}/php-fpm.d/www.conf
 
 bcg-done
