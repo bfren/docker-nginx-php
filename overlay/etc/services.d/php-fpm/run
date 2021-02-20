@@ -7,10 +7,10 @@ export BCG_E="php-fpm/$(basename ${0})"
 #======================================================================================================================
 # Start PHP FastCGI Process Manager.
 #
-# php-fpm8 flags
+# php-fpm flags
 #   -F  run in foreground mode (allows S6 to supervise the service)
 #======================================================================================================================
 
 VERSION=$(php -r "echo PHP_VERSION;")
 bcg-echo "Starting PHP v${VERSION} - FastCGI Process Manager"
-php-fpm8 -F
+php-fpm -F
