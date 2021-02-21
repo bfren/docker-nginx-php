@@ -8,4 +8,4 @@ export BCG_E=`basename ${0}`
 # Run clean-sessions executable.
 #======================================================================================================================
 
-s6-setuidgid www ${LIB_PHP}/clean-sessions
+s6-setuidgid www ${PHP_LIB}/clean-sessions

@@ -9,4 +9,4 @@ export BCG_E=`basename ${0}`
 #======================================================================================================================
 
 # Library configuration
-bcg-env "LIB_PHP" "${LIB}/php"
+bcg-env "PHP_LIB" "${BCG_LIB}/php"
