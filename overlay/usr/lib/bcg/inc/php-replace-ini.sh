@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/with-contenv bash
 
 set -euo pipefail
 
