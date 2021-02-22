@@ -53,8 +53,8 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           tags: |
-            bcgdesign/nginx-php:dev-php-7.3
-            bcgdesign/nginx-php:php-7.3-${{ steps.version.outputs.content }}
+            bcgdesign/nginx-php:php-7.3-dev
+            bcgdesign/nginx-php:php-7.3-${{ steps.version.outputs.content }}-beta
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
