@@ -1,24 +1,36 @@
-name: 8.0-dev
+name: publish-8_0
 
 on:
   push:
-    branches-ignore:
+    branches:
       - 'main'
     tags-ignore:
       - '**'
     paths:
-      - '.github/workflows/build_8_0-main.yml'
+      - '.github/workflows/publish-8_0.yml'
       - '8.0/**'
       - 'overlay/**'
       - 'VERSION'
 
 jobs:
-  build:
+  publish-8_0:
     runs-on: ubuntu-latest
     steps:
       -
         name: Checkout code
         uses: actions/checkout@v2
+      -
+        name: Read PHP version - revision
+        uses: bencgreen/read-file-action@v1
+        with:
+          path: ./8.0/PHP_REVISION
+        id: php_revision
+      -
+        name: Read PHP version - build
+        uses: bencgreen/read-file-action@v1
+        with:
+          path: ./8.0/PHP_BUILD
+        id: php_build
       -
         name: Read image version
         uses: bencgreen/read-file-action@v1
@@ -47,11 +59,12 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           tags: |
-            bcgdesign/nginx-php:dev
-            bcgdesign/nginx-php:dev-php-8
-            bcgdesign/nginx-php:dev-php-8.0
+            bcgdesign/nginx-php:php-8
             bcgdesign/nginx-php:php-8-${{ steps.version.outputs.content }}
+            bcgdesign/nginx-php:php-8.0
             bcgdesign/nginx-php:php-8.0-${{ steps.version.outputs.content }}
+            bcgdesign/nginx-php:php-${{ steps.php_revision.outputs.content }}
+            bcgdesign/nginx-php:php-${{ steps.php_build.outputs.content }}
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
