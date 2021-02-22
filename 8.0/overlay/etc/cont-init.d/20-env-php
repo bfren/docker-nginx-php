@@ -5,7 +5,8 @@ export BCG_E=`basename ${0}`
 
 
 #======================================================================================================================
-# Run clean-sessions executable.
+# Add environment variables.
 #======================================================================================================================
 
-s6-setuidgid www ${PHP_LIB}/clean-sessions
+# PHP directory
+bcg-env "PHP_DIR" "/etc/php8"

@@ -1,11 +1,16 @@
 #!/usr/bin/with-contenv bash
 
 set -euo pipefail
-export BCG_E=`basename ${0}`
+export BCG_E="${PWD##*/}/$(basename ${0})"
 
 
 #======================================================================================================================
-# Run clean-sessions executable.
+# Start PHP FastCGI Process Manager.
+#
+# php-fpm flags
+#   -F  run in foreground mode (allows S6 to supervise the service)
 #======================================================================================================================
 
-s6-setuidgid www ${PHP_LIB}/clean-sessions
+VERSION=$(php -r "echo PHP_VERSION;")
+bcg-echo "Starting PHP v${VERSION} - FastCGI Process Manager."
+php-fpm -F

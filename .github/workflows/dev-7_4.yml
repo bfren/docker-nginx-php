@@ -1,23 +1,36 @@
-name: 8.0-dev
+name: dev-7_4
 
 on:
   push:
-    branches:
-      - '**'
+    branches-ignore:
+      - 'main'
     tags-ignore:
       - '**'
     paths:
-      - '.github/workflows/build_8_0-main.yml'
-      - '8.0/**'
+      - '.github/workflows/dev-7_4.yml'
+      - '7.4/**'
       - 'overlay/**'
+      - 'VERSION'
 
 jobs:
-  build:
+  test-7_4:
     runs-on: ubuntu-latest
     steps:
       -
         name: Checkout code
         uses: actions/checkout@v2
+  build-7_4:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout code
+        uses: actions/checkout@v2
+      -
+        name: Read image version
+        uses: bencgreen/read-file-action@v1
+        with:
+          path: ./VERSION
+        id: version
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
@@ -36,13 +49,15 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ./8.0/Dockerfile
+          file: ./7.4/Dockerfile
           push: true
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           tags: |
-            bcgdesign/nginx-php:dev
-            bcgdesign/nginx-php:dev-php-8
-            bcgdesign/nginx-php:dev-php-8.0
+            bcgdesign/nginx-php:${{ steps.version.outputs.content }}-beta
+            bcgdesign/nginx-php:php-7-dev
+            bcgdesign/nginx-php:php-7-${{ steps.version.outputs.content }}-beta
+            bcgdesign/nginx-php:php-7.4-dev
+            bcgdesign/nginx-php:php-7.4-${{ steps.version.outputs.content }}-beta
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}

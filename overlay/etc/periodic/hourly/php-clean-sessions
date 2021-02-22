@@ -1,10 +1,11 @@
 #!/usr/bin/with-contenv bash
 
 set -euo pipefail
+export BCG_E=`basename ${0}`
 
 
 #======================================================================================================================
-# Call php-clean-sessions executable
+# Call php-clean-sessions executable.
 #======================================================================================================================
 
-s6-setuidgid www php-clean-sessions
+php-clean-sessions

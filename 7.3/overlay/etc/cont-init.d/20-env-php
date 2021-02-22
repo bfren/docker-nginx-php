@@ -1,13 +1,12 @@
 #!/usr/bin/with-contenv bash
 
 set -euo pipefail
+export BCG_E=`basename ${0}`
 
 
 #======================================================================================================================
-# Start PHP FastCGI Process Manager
-#   -F  run in foreground mode (allows S6 to supervise the service)
+# Add environment variables.
 #======================================================================================================================
 
-VERSION=$(php -r "echo PHP_VERSION;")
-bcg-echo "Starting PHP v${VERSION} - FastCGI Process Manager"
-php-fpm7 -F
+# PHP directory
+bcg-env "PHP_DIR" "/etc/php7"
