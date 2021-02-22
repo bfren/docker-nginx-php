@@ -5,7 +5,7 @@ export BCG_E=`basename ${0}`
 
 
 #======================================================================================================================
-# Hat-tip https://www.getpagespeed.com/server-setup/php/cleanup-php-sessions-like-a-pro
+# Hat-tip https://www.getpagespeed.com/server-setup/php/cleanup-php-sessions-like-a-pro.
 #======================================================================================================================
 
 bcg-echo "Cleaning PHP sessions..."
