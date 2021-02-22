@@ -14,12 +14,12 @@ set -euo pipefail
 replace-ini () {
 
     # get array and file
-    local -n ARR=${1}
+    local -n VALUES=${1}
     FILE=${2}
 
     # loop
-    for KEY in ${!A[@]} ; do
-        VAL=${ARR[$KEY]}
+    for KEY in ${!VALUES[@]} ; do
+        VAL=${VALUES[$KEY]}
         if [ ! -z "${VAL}" ] ; then
             bcg-debug "${KEY}=${VAL}." "replace-ini"
             sed -i "s|^;\?${KEY}.*$|${KEY} = ${VAL}|i" ${FILE}
