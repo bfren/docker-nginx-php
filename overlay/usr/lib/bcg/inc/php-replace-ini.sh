@@ -6,7 +6,7 @@ set -euo pipefail
 #======================================================================================================================
 # Replace configuration values in a file.
 #
-# Arguments:
+# Arguments
 #   1   name of array of key/value pairs
 #   2   path to the configuration file
 #======================================================================================================================
