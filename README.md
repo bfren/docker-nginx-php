@@ -82,7 +82,7 @@ The image contains a handful of useful Nginx configuration 'helper' files, which
 
 ## License
 
-> MIT
+> [MIT](https://bcg.mit-license.org/2020)
 
 ## Copyright
 
