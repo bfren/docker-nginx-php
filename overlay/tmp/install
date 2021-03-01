@@ -16,6 +16,7 @@ bcg-debug "PHP version ${VERSION}."
 
 #======================================================================================================================
 # Install PHP dependencies and packages.
+#   (bash is required for php.ini configuration.)
 #======================================================================================================================
 
 bcg-echo "Installing dependencies..."
