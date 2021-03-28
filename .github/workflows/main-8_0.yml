@@ -1,16 +1,8 @@
-name: main-8_0
+name: publish-8_0
 
 on:
-  push:
-    branches:
-      - 'main'
-    tags-ignore:
-      - '**'
-    paths:
-      - '.github/workflows/main-8_0.yml'
-      - '8.0/**'
-      - 'overlay/**'
-      - 'VERSION'
+  release:
+    types: [published]
 
 jobs:
   publish-8_0:

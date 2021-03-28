@@ -1,16 +1,8 @@
-name: main-7_3
+name: publish-7_3
 
 on:
-  push:
-    branches:
-      - 'main'
-    tags-ignore:
-      - '**'
-    paths:
-      - '.github/workflows/main-7_3.yml'
-      - '7.3/**'
-      - 'overlay/**'
-      - 'VERSION'
+  release:
+    types: [published]
 
 jobs:
   publish-7_3:
