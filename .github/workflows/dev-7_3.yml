@@ -6,11 +6,6 @@ on:
       - 'main'
     tags-ignore:
       - '**'
-    paths:
-      - '.github/workflows/dev-7_3.yml'
-      - '7.3/**'
-      - 'overlay/**'
-      - 'VERSION'
 
 jobs:
   test-7_3:
