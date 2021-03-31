@@ -1,19 +1,11 @@
-name: main-8_0
+name: publish-7_4
 
 on:
-  push:
-    branches:
-      - 'main'
-    tags-ignore:
-      - '**'
-    paths:
-      - '.github/workflows/main-8_0.yml'
-      - '8.0/**'
-      - 'overlay/**'
-      - 'VERSION'
+  release:
+    types: [published]
 
 jobs:
-  publish-8_0:
+  publish-7_4:
     runs-on: ubuntu-latest
     steps:
       -
@@ -23,13 +15,13 @@ jobs:
         name: Read PHP version - revision
         uses: bencgreen/read-file-action@v1
         with:
-          path: ./8.0/PHP_REVISION
+          path: ./7.4/PHP_REVISION
         id: php_revision
       -
         name: Read PHP version - build
         uses: bencgreen/read-file-action@v1
         with:
-          path: ./8.0/PHP_BUILD
+          path: ./7.4/PHP_BUILD
         id: php_build
       -
         name: Read image version
@@ -55,14 +47,16 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ./8.0/Dockerfile
+          file: ./7.4/Dockerfile
           push: true
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           tags: |
-            bcgdesign/nginx-php:php8
-            bcgdesign/nginx-php:php8-${{ steps.version.outputs.content }}
-            bcgdesign/nginx-php:php8.0
-            bcgdesign/nginx-php:php8.0-${{ steps.version.outputs.content }}
+            bcgdesign/nginx-php:latest
+            bcgdesign/nginx-php:${{ steps.version.outputs.content }}
+            bcgdesign/nginx-php:php7
+            bcgdesign/nginx-php:php7-${{ steps.version.outputs.content }}
+            bcgdesign/nginx-php:php7.4
+            bcgdesign/nginx-php:php7.4-${{ steps.version.outputs.content }}
             bcgdesign/nginx-php:php${{ steps.php_revision.outputs.content }}
             bcgdesign/nginx-php:php${{ steps.php_build.outputs.content }}
       -

@@ -6,11 +6,6 @@ on:
       - 'main'
     tags-ignore:
       - '**'
-    paths:
-      - '.github/workflows/dev-8_0.yml'
-      - '8.0/**'
-      - 'overlay/**'
-      - 'VERSION'
 
 jobs:
   test-8_0:
