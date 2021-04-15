@@ -1,8 +1,8 @@
-FROM bcgdesign/nginx:alpine3.13-2.1.0
+FROM bcgdesign/nginx:alpineedge-2.1.0
 
 LABEL maintainer="Ben Green <ben@bcgdesign.com>" \
     org.label-schema.name="Nginx + PHP" \
-    org.label-schema.version="PHP 8.0" \
+    org.label-schema.version="PHP 8.0 Edge" \
     org.label-schema.vendor="Ben Green" \
     org.label-schema.schema-version="1.0"
 
@@ -30,6 +30,6 @@ ENV \
 
 COPY ./overlay /
 COPY ./8.0/overlay /
-COPY ./8.0/PHP_BUILD /tmp/VERSION
+COPY ./8.0-edge/PHP_BUILD /tmp/VERSION
 
 RUN bcg-install

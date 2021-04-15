@@ -1,8 +1,8 @@
-FROM bcgdesign/nginx:alpine3.13-2.1.0
+FROM bcgdesign/nginx:alpineedge-2.1.0
 
 LABEL maintainer="Ben Green <ben@bcgdesign.com>" \
     org.label-schema.name="Nginx + PHP" \
-    org.label-schema.version="PHP 8.0" \
+    org.label-schema.version="PHP 7.4 Edge" \
     org.label-schema.vendor="Ben Green" \
     org.label-schema.schema-version="1.0"
 
@@ -16,7 +16,7 @@ ENV \
     # php.ini override: display_startup_errors
     PHP_INI_DISPLAY_STARTUP_ERRORS= \
     # php.ini override: error_log
-    PHP_INI_ERROR_LOG="/var/log/php8/error.log" \
+    PHP_INI_ERROR_LOG="/var/log/php7/error.log" \
     # php.ini override: err-r_reporting
     PHP_INI_ERROR_REPORTING= \
     # php.ini override: memory_limit
@@ -29,7 +29,7 @@ ENV \
     PHP_SESSION_MAX_LIFETIME=86400
 
 COPY ./overlay /
-COPY ./8.0/overlay /
-COPY ./8.0/PHP_BUILD /tmp/VERSION
+COPY ./7.4/overlay /
+COPY ./7.4-edge/PHP_BUILD /tmp/VERSION
 
 RUN bcg-install

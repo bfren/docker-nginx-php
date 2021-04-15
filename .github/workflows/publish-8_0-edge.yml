@@ -1,25 +1,28 @@
-name: dev-7_4
+name: publish-8_0-edge
 
 on:
-  push:
-    branches-ignore:
-      - 'main'
-    tags-ignore:
-      - '**'
+  release:
+    types: [published]
 
 jobs:
-  test-7_4:
+  publish-8_0-edge:
     runs-on: ubuntu-latest
     steps:
       -
         name: Checkout code
         uses: actions/checkout@v2
-  build-7_4:
-    runs-on: ubuntu-latest
-    steps:
       -
-        name: Checkout code
-        uses: actions/checkout@v2
+        name: Read PHP version - revision
+        uses: bencgreen/read-file-action@v1
+        with:
+          path: ./8.0-edge/PHP_REVISION
+        id: php_revision
+      -
+        name: Read PHP version - build
+        uses: bencgreen/read-file-action@v1
+        with:
+          path: ./8.0-edge/PHP_BUILD
+        id: php_build
       -
         name: Read image version
         uses: bencgreen/read-file-action@v1
@@ -44,16 +47,16 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ./7.4/Dockerfile
+          file: ./8.0-edge/Dockerfile
           push: true
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           tags: |
-            bcgdesign/nginx-php:dev
-            bcgdesign/nginx-php:${{ steps.version.outputs.content }}-beta
-            bcgdesign/nginx-php:php7-dev
-            bcgdesign/nginx-php:php7-${{ steps.version.outputs.content }}-beta
-            bcgdesign/nginx-php:php7.4-dev
-            bcgdesign/nginx-php:php7.4-${{ steps.version.outputs.content }}-beta
+            bcgdesign/nginx-php:php8-edge
+            bcgdesign/nginx-php:php8-edge-${{ steps.version.outputs.content }}
+            bcgdesign/nginx-php:php8.0-edge
+            bcgdesign/nginx-php:php8.0-edge-${{ steps.version.outputs.content }}
+            bcgdesign/nginx-php:php${{ steps.php_revision.outputs.content }}-edge
+            bcgdesign/nginx-php:php${{ steps.php_build.outputs.content }}-edge
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
