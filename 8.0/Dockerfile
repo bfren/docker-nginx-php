@@ -1,8 +1,8 @@
-FROM bcgdesign/nginx:alpine3.13-2.0.10
+FROM bcgdesign/nginx:alpine3.13-2.1.0
 
 LABEL maintainer="Ben Green <ben@bcgdesign.com>" \
     org.label-schema.name="Nginx + PHP" \
-    org.label-schema.version="8.0" \
+    org.label-schema.version="PHP 8.0" \
     org.label-schema.vendor="Ben Green" \
     org.label-schema.schema-version="1.0"
 
