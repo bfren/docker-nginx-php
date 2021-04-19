@@ -3,6 +3,7 @@ name: publish-8_0
 on:
   release:
     types: [published]
+  workflow_dispatch:
 
 jobs:
   publish-8_0:
