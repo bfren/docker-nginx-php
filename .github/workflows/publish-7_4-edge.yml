@@ -3,6 +3,7 @@ name: publish-7_4-edge
 on:
   release:
     types: [published]
+  workflow_dispatch:
 
 jobs:
   publish-7_4-edge:
