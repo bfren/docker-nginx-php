@@ -1,4 +1,4 @@
-FROM bcgdesign/nginx:alpineedge-2.1.2
+FROM bcgdesign/nginx:alpineedge-2.1.3
 
 LABEL maintainer="Ben Green <ben@bcgdesign.com>" \
     org.label-schema.name="Nginx + PHP" \
