@@ -1,7 +1,7 @@
 #!/bin/sh
 
 set -euo pipefail
-export BCG_E=`basename ${0}`
+export BF_E=`basename ${0}`
 
 
 #======================================================================================================================
@@ -11,7 +11,7 @@ export BCG_E=`basename ${0}`
 cd /tmp
 
 VERSION=$(cat VERSION)
-bcg-debug "PHP version ${VERSION}."
+bf-debug "PHP version ${VERSION}."
 
 
 #======================================================================================================================
@@ -19,19 +19,19 @@ bcg-debug "PHP version ${VERSION}."
 #   (bash is required for php.ini configuration.)
 #======================================================================================================================
 
-bcg-echo "Installing dependencies..."
+bf-echo "Installing dependencies..."
 apk add --no-cache \
     bash
-bcg-done
+bf-done
 
-bcg-echo "Installing PHP v${VERSION}..."
+bf-echo "Installing PHP v${VERSION}..."
 chmod +x ./install-php && ./install-php ${VERSION}
-bcg-done
+bf-done
 
 
 #======================================================================================================================
 # Cleanup.
 #======================================================================================================================
 
-bcg-debug "Cleanup /www files."
+bf-debug "Cleanup /www files."
 rm -f /www/index.html

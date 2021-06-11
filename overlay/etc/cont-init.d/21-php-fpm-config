@@ -1,21 +1,21 @@
 #!/usr/bin/with-contenv bash
 
 set -euo pipefail
-export BCG_E=`basename ${0}`
+export BF_E=`basename ${0}`
 
 
 #======================================================================================================================
 # Optionally override configuration.
 #======================================================================================================================
 
-bcg-echo "Setting www.conf configuration values..."
+bf-echo "Setting www.conf configuration values..."
 
 declare -A VALUES
 VALUES["user"]="www"
 VALUES["group"]="www"
 VALUES["log_level"]="${PHP_FPM_LOG_LEVEL-}"
 
-source ${BCG_INC}/php-replace-ini.sh
+source ${BF_INC}/php-replace-ini.sh
 replace-ini VALUES ${PHP_DIR}/php-fpm.d/www.conf
 
-bcg-done
+bf-done
