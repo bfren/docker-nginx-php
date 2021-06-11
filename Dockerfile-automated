@@ -1,4 +1,4 @@
-FROM bcgdesign/nginx:auto
+FROM bfren/nginx:auto
 
 ENV \
     # www.conf override: log_level
