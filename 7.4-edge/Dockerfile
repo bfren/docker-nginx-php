@@ -1,4 +1,4 @@
-FROM bfren/nginx:alpineedge-2.2.0-beta
+FROM bfren/nginx:alpineedge-2.2.0
 
 ENV \
     # www.conf override: log_level
