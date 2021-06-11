@@ -8,7 +8,7 @@ export BCG_E=`basename ${0}`
 # Optionally override configuration.
 #======================================================================================================================
 
-bcg-echo "Setting php.ini configuration values..."
+bf-echo "Setting php.ini configuration values..."
 
 declare -A VALUES
 VALUES["display_errors"]="${PHP_INI_DISPLAY_ERRORS-}"
@@ -23,4 +23,4 @@ VALUES["upload_max_filesize"]="${PHP_INI_MAX_UPLOAD-}"
 source ${BCG_INC}/php-replace-ini.sh
 replace-ini VALUES ${PHP_DIR}/php.ini
 
-bcg-done
+bf-done

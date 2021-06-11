@@ -32,4 +32,4 @@ COPY ./overlay /
 COPY ./7.3/overlay /
 COPY ./7.3/PHP_BUILD /tmp/VERSION
 
-RUN bcg-install
+RUN bf-install

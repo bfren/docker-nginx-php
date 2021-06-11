@@ -15,13 +15,13 @@ replace-ini () {
     local -n A=${1}
     FILE=${2}
 
-    bcg-debug "Replacing configuration values in ${FILE}."
+    bf-debug "Replacing configuration values in ${FILE}."
 
     # loop
     for KEY in ${!A[@]} ; do
         VAL=${A[$KEY]}
         if [ ! -z "${VAL}" ] ; then
-            bcg-debug "${KEY}=${VAL}." "replace-ini"
+            bf-debug "${KEY}=${VAL}." "replace-ini"
             sed -i "s|^;\?${KEY}.*$|${KEY} = ${VAL}|i" ${FILE}
         fi
     done
