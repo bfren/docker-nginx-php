@@ -1,9 +1,9 @@
 # Docker Nginx PHP
 
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/bencgreen/docker-nginx-php) ![Docker Pulls](https://img.shields.io/docker/pulls/bcgdesign/nginx-php?label=pulls) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/bcgdesign/nginx-php/latest?label=size)<br/>
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/bencgreen/docker-nginx-php/dev-7_3?label=PHP+7.3) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/bencgreen/docker-nginx-php/dev-7_4?label=PHP+7.4) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/bencgreen/docker-nginx-php/dev-7_4-edge?label=PHP+7.4+(edge)) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/bencgreen/docker-nginx-php/dev-8_0?label=PHP+8.0) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/bencgreen/docker-nginx-php/dev-8_0-edge?label=PHP+8.0+(edge))
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/bfren/docker-nginx-php) ![Docker Pulls](https://img.shields.io/docker/pulls/bcgdesign/nginx-php?label=pulls) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/bcgdesign/nginx-php/latest?label=size)<br/>
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/bfren/docker-nginx-php/dev-7_3?label=PHP+7.3) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/bfren/docker-nginx-php/dev-7_4?label=PHP+7.4) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/bfren/docker-nginx-php/dev-7_4-edge?label=PHP+7.4+(edge)) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/bfren/docker-nginx-php/dev-8_0?label=PHP+8.0) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/bfren/docker-nginx-php/dev-8_0-edge?label=PHP+8.0+(edge))
 
-[Docker Repository](https://hub.docker.com/r/bcgdesign/nginx-php) - [bcg|design ecosystem](https://github.com/bencgreen/docker)
+[Docker Repository](https://hub.docker.com/r/bcgdesign/nginx-php) - [bfren ecosystem](https://github.com/bfren/docker)
 
 Nginx plus PHP (7.3, 7.4, and 8.0) - no SSL support etc, designed to be used behind a proxy server.  Minimal PHP packages are installed:
 
@@ -23,7 +23,7 @@ Additionally, `bash` is installed as it is required by some of the setup scripts
 * [Environment Variables](#environment-variables)
 * [Helper Functions](#helper-functions)
 * [Nginx Configuration Helpers](#nginx-configuration-helpers)
-* [Authors / Licence / Copyright](#authors)
+* [Licence / Copyright](#licence)
 
 ## Ports
 
@@ -77,15 +77,11 @@ The image contains a handful of useful Nginx configuration 'helper' files, which
 | `-try-all.conf` | Enables SEO-friendly URLs (e.g. without `index.php`).      |
 | `-try-php.conf` | Sends the request to upstream PHP FastCGI Process Manager. |
 
-## Authors
+## Licence
 
-* [Ben Green](https://github.com/bencgreen)
-
-## License
-
-> [MIT](https://mit.bcgdesign.com/2020)
+> [MIT](https://mit.bfren.uk/2020)
 
 ## Copyright
 
-> Copyright (c) 2021 Ben Green <https://bcgdesign.com>
+> Copyright (c) 2021 bfren.uk
 > Unless otherwise stated
