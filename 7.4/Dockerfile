@@ -1,11 +1,5 @@
 FROM bcgdesign/nginx:alpine3.13-2.1.4
 
-LABEL maintainer="Ben Green <ben@bcgdesign.com>" \
-    org.label-schema.name="Nginx + PHP" \
-    org.label-schema.version="PHP 7.4" \
-    org.label-schema.vendor="Ben Green" \
-    org.label-schema.schema-version="1.0"
-
 ENV \
     # www.conf override: log_level
     PHP_FPM_LOG_LEVEL="notice" \
