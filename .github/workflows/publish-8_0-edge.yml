@@ -14,19 +14,19 @@ jobs:
         uses: actions/checkout@v2
       -
         name: Read PHP version - revision
-        uses: bencgreen/read-file-action@v1
+        uses: bfren/read-file-action@v1
         with:
           path: ./8.0-edge/PHP_REVISION
         id: php_revision
       -
         name: Read PHP version - build
-        uses: bencgreen/read-file-action@v1
+        uses: bfren/read-file-action@v1
         with:
           path: ./8.0-edge/PHP_BUILD
         id: php_build
       -
         name: Read image version
-        uses: bencgreen/read-file-action@v1
+        uses: bfren/read-file-action@v1
         with:
           path: ./VERSION
         id: version
