@@ -1,7 +1,7 @@
 #!/usr/bin/with-contenv bash
 
 set -euo pipefail
-export BCG_E=`basename ${0}`
+export BF_E=`basename ${0}`
 
 
 #======================================================================================================================
