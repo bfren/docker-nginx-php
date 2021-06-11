@@ -52,12 +52,12 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           tags: |
-            bcgdesign/nginx-php:php8
-            bcgdesign/nginx-php:php8-${{ steps.version.outputs.content }}
-            bcgdesign/nginx-php:php8.0
-            bcgdesign/nginx-php:php8.0-${{ steps.version.outputs.content }}
-            bcgdesign/nginx-php:php${{ steps.php_revision.outputs.content }}
-            bcgdesign/nginx-php:php${{ steps.php_build.outputs.content }}
+            bfren/nginx-php:php8
+            bfren/nginx-php:php8-${{ steps.version.outputs.content }}
+            bfren/nginx-php:php8.0
+            bfren/nginx-php:php8.0-${{ steps.version.outputs.content }}
+            bfren/nginx-php:php${{ steps.php_revision.outputs.content }}
+            bfren/nginx-php:php${{ steps.php_build.outputs.content }}
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
