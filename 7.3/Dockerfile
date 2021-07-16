@@ -1,4 +1,4 @@
-FROM bfren/nginx:alpine3.12-2.2.2
+FROM bfren/nginx:alpine3.12-2.2.3
 
 ENV \
     # www.conf override: log_level
