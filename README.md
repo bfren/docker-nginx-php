@@ -79,9 +79,9 @@ The image contains a handful of useful Nginx configuration 'helper' files, which
 
 ## Licence
 
-> [MIT](https://mit.bfren.uk/2020)
+> [MIT](https://mit.bfren.dev/2020)
 
 ## Copyright
 
-> Copyright (c) 2021 bfren.uk
+> Copyright (c) 2021 bfren
 > Unless otherwise stated
