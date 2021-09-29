@@ -14,21 +14,21 @@ jobs:
         uses: actions/checkout@v2
       -
         name: Read PHP version - revision
-        uses: bfren/read-file-action@v1
+        uses: bfren/read-file@v1
         with:
           path: ./7.4/PHP_REVISION
         id: php_revision
       -
         name: Read PHP version - build
-        uses: bfren/read-file-action@v1
+        uses: bfren/read-file@v1
         with:
           path: ./7.4/PHP_BUILD
         id: php_build
       -
         name: Read image version
-        uses: bfren/read-file-action@v1
+        uses: bfren/read-file@v1
         with:
-          path: ./VERSION
+          file: ./VERSION
         id: version
       -
         name: Set up QEMU
@@ -53,13 +53,13 @@ jobs:
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           tags: |
             bfren/nginx-php:latest
-            bfren/nginx-php:${{ steps.version.outputs.content }}
+            bfren/nginx-php:${{ steps.version.outputs.contents }}
             bfren/nginx-php:php7
-            bfren/nginx-php:php7-${{ steps.version.outputs.content }}
+            bfren/nginx-php:php7-${{ steps.version.outputs.contents }}
             bfren/nginx-php:php7.4
-            bfren/nginx-php:php7.4-${{ steps.version.outputs.content }}
-            bfren/nginx-php:php${{ steps.php_revision.outputs.content }}
-            bfren/nginx-php:php${{ steps.php_build.outputs.content }}
+            bfren/nginx-php:php7.4-${{ steps.version.outputs.contents }}
+            bfren/nginx-php:php${{ steps.php_revision.outputs.contents }}
+            bfren/nginx-php:php${{ steps.php_build.outputs.contents }}
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
