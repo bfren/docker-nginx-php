@@ -16,13 +16,13 @@ jobs:
         name: Read PHP version - revision
         uses: bfren/read-file@v1
         with:
-          path: ./7.3/PHP_REVISION
+          file: ./7.3/PHP_REVISION
         id: php_revision
       -
         name: Read PHP version - build
         uses: bfren/read-file@v1
         with:
-          path: ./7.3/PHP_BUILD
+          file: ./7.3/PHP_BUILD
         id: php_build
       -
         name: Read image version
