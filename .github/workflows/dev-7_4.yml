@@ -46,7 +46,7 @@ jobs:
         with:
           context: .
           file: ./7.4/Dockerfile
-          push: true
+          push: ${{ startsWith(github.ref, 'refs/heads/') }}
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           tags: |
             bfren/nginx-php:php7-dev
