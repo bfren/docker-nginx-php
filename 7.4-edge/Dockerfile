@@ -1,4 +1,4 @@
-FROM bfren/nginx:edge-2.2.25
+FROM bfren/nginx:edge-2.3.0
 
 ENV \
     # www.conf override: log_level
