@@ -13,6 +13,10 @@ jobs:
         name: Checkout code
         uses: actions/checkout@v2
       -
+        name: Get repository name
+        run: echo "REPOSITORY_NAME=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')" >> $GITHUB_ENV
+        shell: bash
+      -
         name: Read PHP version - revision
         uses: bfren/read-file@v1
         with:
@@ -61,6 +65,9 @@ jobs:
         with:
           context: .
           file: ./8.0-edge/Dockerfile
+          build-args: |
+            BF_IMAGE=${{ env.REPOSITORY_NAME }}
+            BF_VERSION=${{ steps.version.outputs.contents }}
           push: true
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           tags: |
