@@ -4,6 +4,8 @@ ARG BF_IMAGE
 ARG BF_VERSION
 
 ENV \
+    # PHP config directory
+    PHP_DIR=/etc/php7 \
     # www.conf override: log_level
     PHP_FPM_LOG_LEVEL="notice" \
     # php.ini template to use
