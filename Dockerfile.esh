@@ -1,4 +1,4 @@
-FROM bfren/nginx:<%= ${NGINX_MINOR} %>-<%= ${BASE_REVISION} %>
+FROM bfren/nginx:nginx<%= ${NGINX_MINOR} %>-<%= ${BASE_REVISION} %>
 
 ARG BF_IMAGE
 ARG BF_VERSION

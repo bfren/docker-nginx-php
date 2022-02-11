@@ -1,4 +1,4 @@
-FROM bfren/nginx:1.18-3.0.0
+FROM bfren/nginx:nginx1.18-3.0.0
 
 ARG BF_IMAGE
 ARG BF_VERSION
