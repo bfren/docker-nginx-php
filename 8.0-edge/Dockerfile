@@ -1,4 +1,4 @@
-FROM bfren/nginx:edge-2.5.2
+FROM bfren/nginx:edge-3.0.0
 
 ARG BF_IMAGE
 ARG BF_VERSION
@@ -26,8 +26,7 @@ ENV \
     PHP_SESSION_MAX_LIFETIME=86400
 
 COPY ./overlay /
-COPY ./8.0/overlay /
 COPY ./8.0-edge/overlay /
-COPY ./8.0-edge/PHP_BUILD /tmp/VERSION
+COPY ./8.0-edge/PHP_BUILD /tmp/
 
 RUN bf-install
