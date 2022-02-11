@@ -28,6 +28,10 @@ bf-echo "Installing PHP v${VERSION}..."
 chmod +x ./install-php && ./install-php ${VERSION}
 bf-done
 
+bf-echo "Creating blank error log..."
+touch ${PHP_INI_ERROR_LOG}
+bf-done
+
 
 #======================================================================================================================
 # Cleanup.
