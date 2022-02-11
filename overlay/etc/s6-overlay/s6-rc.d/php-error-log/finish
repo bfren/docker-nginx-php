@@ -1,11 +1,10 @@
-#!/usr/bin/with-contenv bash
+#!/command/with-contenv sh
 
 set -euo pipefail
-export BF_E="${PWD##*/}/$(basename ${0})"
 
 
 #======================================================================================================================
-# Forward PHP errors to Docker.
+# Show helpful log message.
 #======================================================================================================================
 
-bf-forward ${PWD##*/} ${PHP_INI_ERROR_LOG}
+bf-svc-finish -s ${PWD##*/}
