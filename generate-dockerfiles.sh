@@ -12,7 +12,7 @@ for V in ${PHP_VERSIONS} ; do
 
     echo "PHP ${V}"
     PHP_MAJOR="$(echo ${V} | cut -c 1)"
-    NGINX_MINOR=`cat ./${V}/NGINX_MINOR`
+    NGINX_BASE=`cat ./${V}/NGINX_BASE`
 
     DOCKERFILE=$(docker run \
         -v ${PWD}:/ws \
@@ -20,7 +20,7 @@ for V in ${PHP_VERSIONS} ; do
         bfren/alpine esh \
         "/ws/Dockerfile.esh" \
         BASE_REVISION=${BASE_REVISION} \
-        NGINX_MINOR=${NGINX_MINOR} \
+        NGINX_BASE=${NGINX_BASE} \
         PHP_MAJOR=${PHP_MAJOR} \
         PHP_MINOR=${V}
     )
