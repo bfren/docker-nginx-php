@@ -1,4 +1,4 @@
-#!/usr/bin/with-contenv bash
+#!/command/with-contenv bash
 
 set -euo pipefail
 export BF_E=`basename ${0}`
@@ -8,5 +8,5 @@ export BF_E=`basename ${0}`
 # Add environment variables.
 #======================================================================================================================
 
-# PHP directory
-bf-env "PHP_DIR" "/etc/php7"
+# Library configuration
+bf-env "PHP_LIB" "${BF_LIB}/php"

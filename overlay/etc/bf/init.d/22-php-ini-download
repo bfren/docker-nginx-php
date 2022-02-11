@@ -1,4 +1,4 @@
-#!/usr/bin/with-contenv bash
+#!/command/with-contenv bash
 
 set -euo pipefail
 export BF_E=`basename ${0}`
@@ -10,7 +10,6 @@ export BF_E=`basename ${0}`
 
 DOWNLOADED="${PHP_DIR}/php.ini-${PHP_INI}.downloaded"
 if [ -e ${DOWNLOADED} ] ; then
-    bf-done
     exit 0
 fi
 
@@ -20,7 +19,6 @@ if [ "${PHP_INI}" = "development" ] || [ "${PHP_INI}" = "production" ] ; then
     bf-echo "Downloading php.ini from ${URL}..."
     wget -O ${PHP_DIR}/php.ini ${URL} \
         && touch ${DOWNLOADED}
-    bf-done
     exit 0
 
 fi

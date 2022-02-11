@@ -1,9 +1,11 @@
-FROM bfren/nginx:nginx1.20-2.5.2
+FROM bfren/nginx:nginx1.20-3.0.3
 
 ARG BF_IMAGE
 ARG BF_VERSION
 
 ENV \
+    # PHP config directory
+    PHP_DIR=/etc/php8 \
     # www.conf override: log_level
     PHP_FPM_LOG_LEVEL="notice" \
     # php.ini template to use
@@ -27,6 +29,6 @@ ENV \
 
 COPY ./overlay /
 COPY ./8.0/overlay /
-COPY ./8.0/PHP_BUILD /tmp/VERSION
+COPY ./8.0/PHP_BUILD /tmp/
 
 RUN bf-install

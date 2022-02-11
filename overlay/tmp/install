@@ -10,8 +10,8 @@ export BF_E=`basename ${0}`
 
 cd /tmp
 
-VERSION=$(cat VERSION)
-bf-debug "PHP version ${VERSION}."
+VERSION=$(cat PHP_BUILD)
+bf-echo "PHP version ${VERSION}."
 
 
 #======================================================================================================================
@@ -28,10 +28,14 @@ bf-echo "Installing PHP v${VERSION}..."
 chmod +x ./install-php && ./install-php ${VERSION}
 bf-done
 
+bf-echo "Creating blank error log..."
+touch ${PHP_INI_ERROR_LOG}
+bf-done
+
 
 #======================================================================================================================
 # Cleanup.
 #======================================================================================================================
 
-bf-debug "Cleanup /www files."
+bf-echo "Cleanup /www files."
 rm -f /www/index.html

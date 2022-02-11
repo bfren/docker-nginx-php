@@ -1,4 +1,4 @@
-#!/usr/bin/with-contenv bash
+#!/command/with-contenv bash
 
 set -euo pipefail
 export BF_E=`basename ${0}`
@@ -22,5 +22,3 @@ VALUES["upload_max_filesize"]="${PHP_INI_MAX_UPLOAD-}"
 
 source ${BF_INC}/php-replace-ini.sh
 replace-ini VALUES ${PHP_DIR}/php.ini
-
-bf-done

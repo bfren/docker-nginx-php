@@ -1,4 +1,4 @@
-#!/usr/bin/with-contenv bash
+#!/command/with-contenv bash
 
 set -euo pipefail
 export BF_E=`basename ${0}`
@@ -17,5 +17,3 @@ VALUES["log_level"]="${PHP_FPM_LOG_LEVEL-}"
 
 source ${BF_INC}/php-replace-ini.sh
 replace-ini VALUES ${PHP_DIR}/php-fpm.d/www.conf
-
-bf-done

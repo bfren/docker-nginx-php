@@ -1,9 +1,11 @@
-FROM bfren/nginx:edge-2.5.2
+FROM bfren/nginx:edge-3.0.3
 
 ARG BF_IMAGE
 ARG BF_VERSION
 
 ENV \
+    # PHP config directory
+    PHP_DIR=/etc/php8 \
     # www.conf override: log_level
     PHP_FPM_LOG_LEVEL="notice" \
     # php.ini template to use
@@ -26,8 +28,7 @@ ENV \
     PHP_SESSION_MAX_LIFETIME=86400
 
 COPY ./overlay /
-COPY ./8.0/overlay /
 COPY ./8.0-edge/overlay /
-COPY ./8.0-edge/PHP_BUILD /tmp/VERSION
+COPY ./8.0-edge/PHP_BUILD /tmp/
 
 RUN bf-install

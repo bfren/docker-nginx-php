@@ -1,12 +1,11 @@
-#!/usr/bin/with-contenv bash
+#!/command/with-contenv sh
 
 set -euo pipefail
-export BF_E=`basename ${0}`
+export BF_E="${PWD##*/}/$(basename ${0})"
 
 
 #======================================================================================================================
-# Add environment variables.
+# Show helpful log message.
 #======================================================================================================================
 
-# Library configuration
-bf-env "PHP_LIB" "${BF_LIB}/php"
+bf-svc-finish -t

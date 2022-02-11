@@ -83,4 +83,4 @@ The image contains a handful of useful Nginx configuration 'helper' files, which
 
 ## Copyright
 
-> Copyright (c) 2021 [bfren](https://bfren.dev) (unless otherwise stated)
+> Copyright (c) 2020-2022 [bfren](https://bfren.dev) (unless otherwise stated)
