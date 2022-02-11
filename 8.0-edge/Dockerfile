@@ -1,4 +1,4 @@
-FROM bfren/nginx:edge-3.0.1-beta
+FROM bfren/nginx:edge-3.0.1
 
 ARG BF_IMAGE
 ARG BF_VERSION
