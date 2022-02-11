@@ -1,4 +1,4 @@
-#!/usr/bin/with-contenv bash
+#!/command/with-contenv bash
 
 set -euo pipefail
 export BF_E=`basename ${0}`
@@ -9,4 +9,4 @@ export BF_E=`basename ${0}`
 #======================================================================================================================
 
 # PHP directory
-bf-env "PHP_DIR" "/etc/php7"
+bf-env "PHP_DIR" "/etc/php8"
