@@ -71,10 +71,6 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           tags: |
-            bfren/nginx-php:php7
-            bfren/nginx-php:php7-${{ steps.version_major.outputs.contents }}
-            bfren/nginx-php:php7-${{ steps.version_minor.outputs.contents }}
-            bfren/nginx-php:php7-${{ steps.version.outputs.contents }}
             bfren/nginx-php:php7.4
             bfren/nginx-php:php7.4-${{ steps.version_major.outputs.contents }}
             bfren/nginx-php:php7.4-${{ steps.version_minor.outputs.contents }}
