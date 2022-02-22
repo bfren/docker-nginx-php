@@ -28,7 +28,7 @@ ENV \
     PHP_SESSION_MAX_LIFETIME=86400
 
 COPY ./overlay /
-COPY ./8.0-edge/overlay /
-COPY ./8.0-edge/PHP_BUILD /tmp/
+COPY ./8.1-edge/overlay /
+COPY ./8.1-edge/PHP_BUILD /tmp/
 
 RUN bf-install
