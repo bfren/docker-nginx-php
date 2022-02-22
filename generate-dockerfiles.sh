@@ -15,8 +15,10 @@ for V in ${PHP_VERSIONS} ; do
     NGINX_BASE=`cat ./${V}/NGINX_BASE`
 
     if [ "${V}" = "8.1-edge" ] ; then
+        PHP_DIR="/etc/php81"
         PHP_INI_ERROR_LOG="/var/log/php81/error.log"
     else
+        PHP_DIR="/etc/php${PHP_MAJOR}"
         PHP_INI_ERROR_LOG="/var/log/php${PHP_MAJOR}/error.log"
     fi
 
@@ -29,6 +31,7 @@ for V in ${PHP_VERSIONS} ; do
         NGINX_BASE=${NGINX_BASE} \
         PHP_MAJOR=${PHP_MAJOR} \
         PHP_MINOR=${V} \
+        PHP_DIR=${PHP_DIR} \
         PHP_INI_ERROR_LOG=${PHP_INI_ERROR_LOG}
     )
 
