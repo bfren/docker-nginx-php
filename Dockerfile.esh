@@ -15,7 +15,7 @@ ENV \
     # php.ini override: display_startup_errors
     PHP_INI_DISPLAY_STARTUP_ERRORS= \
     # php.ini override: error_log
-    PHP_INI_ERROR_LOG="/var/log/php<%= ${PHP_MAJOR} %>/error.log" \
+    PHP_INI_ERROR_LOG="<%= ${PHP_INI_ERROR_LOG} %>" \
     # php.ini override: err-r_reporting
     PHP_INI_ERROR_REPORTING= \
     # php.ini override: memory_limit

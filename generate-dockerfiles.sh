@@ -14,6 +14,12 @@ for V in ${PHP_VERSIONS} ; do
     PHP_MAJOR="$(echo ${V} | cut -c 1)"
     NGINX_BASE=`cat ./${V}/NGINX_BASE`
 
+    if [ "${V}" = "8.1-edge" ] ; then
+        PHP_INI_ERROR_LOG="/var/log/php81/error.log"
+    else
+        PHP_INI_ERROR_LOG="/var/log/php${PHP_MAJOR}/error.log"
+    fi
+
     DOCKERFILE=$(docker run \
         -v ${PWD}:/ws \
         -e BF_DEBUG=0 \
@@ -22,7 +28,8 @@ for V in ${PHP_VERSIONS} ; do
         BASE_REVISION=${BASE_REVISION} \
         NGINX_BASE=${NGINX_BASE} \
         PHP_MAJOR=${PHP_MAJOR} \
-        PHP_MINOR=${V}
+        PHP_MINOR=${V} \
+        PHP_INI_ERROR_LOG=${PHP_INI_ERROR_LOG}
     )
 
     echo "${DOCKERFILE}" > ./${V}/Dockerfile
