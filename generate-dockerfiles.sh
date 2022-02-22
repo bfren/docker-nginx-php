@@ -7,7 +7,7 @@ docker pull bfren/alpine
 BASE_REVISION="3.0.7"
 echo "Base: ${BASE_REVISION}"
 
-PHP_VERSIONS="7.3 7.4 7.4-edge 8.0 8.0-edge"
+PHP_VERSIONS="7.3 7.4 7.4-edge 8.0 8.0-edge 8.1-edge"
 for V in ${PHP_VERSIONS} ; do
 
     echo "PHP ${V}"
