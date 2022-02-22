@@ -5,7 +5,7 @@ ARG BF_VERSION
 
 ENV \
     # PHP config directory
-    PHP_DIR="/etc/php7" \
+    PHP_DIR="/etc/php81" \
     # www.conf override: log_level
     PHP_FPM_LOG_LEVEL="notice" \
     # php.ini template to use
@@ -15,7 +15,7 @@ ENV \
     # php.ini override: display_startup_errors
     PHP_INI_DISPLAY_STARTUP_ERRORS= \
     # php.ini override: error_log
-    PHP_INI_ERROR_LOG="/var/log/php7/error.log" \
+    PHP_INI_ERROR_LOG="/var/log/php81/error.log" \
     # php.ini override: err-r_reporting
     PHP_INI_ERROR_REPORTING= \
     # php.ini override: memory_limit
@@ -28,7 +28,7 @@ ENV \
     PHP_SESSION_MAX_LIFETIME=86400
 
 COPY ./overlay /
-COPY ./7.4-edge/overlay /
-COPY ./7.4-edge/PHP_BUILD /tmp/
+COPY ./8.1-edge/overlay /
+COPY ./8.1-edge/PHP_BUILD /tmp/
 
 RUN bf-install

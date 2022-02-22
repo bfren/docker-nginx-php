@@ -1,4 +1,4 @@
-name: publish-8_0-edge
+name: publish-8_1-edge
 
 on:
   release:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  publish-8_0-edge:
+  publish-8_1-edge:
     runs-on: ubuntu-latest
     steps:
       -
@@ -20,13 +20,13 @@ jobs:
         name: Read PHP version - revision
         uses: bfren/read-file@v1
         with:
-          file: ./8.0-edge/PHP_REVISION
+          file: ./8.1-edge/PHP_REVISION
         id: php_revision
       -
         name: Read PHP version - build
         uses: bfren/read-file@v1
         with:
-          file: ./8.0-edge/PHP_BUILD
+          file: ./8.1-edge/PHP_BUILD
         id: php_build
       -
         name: Read image version
@@ -64,17 +64,21 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ./8.0-edge/Dockerfile
+          file: ./8.1-edge/Dockerfile
           build-args: |
             BF_IMAGE=${{ env.REPOSITORY_NAME }}
             BF_VERSION=${{ steps.version.outputs.contents }}
           push: true
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           tags: |
-            bfren/nginx-php:php8.0-edge
-            bfren/nginx-php:php8.0-edge-${{ steps.version_major.outputs.contents }}
-            bfren/nginx-php:php8.0-edge-${{ steps.version_minor.outputs.contents }}
-            bfren/nginx-php:php8.0-edge-${{ steps.version.outputs.contents }}
+            bfren/nginx-php:php8-edge
+            bfren/nginx-php:php8-edge-${{ steps.version_major.outputs.contents }}
+            bfren/nginx-php:php8-edge-${{ steps.version_minor.outputs.contents }}
+            bfren/nginx-php:php8-edge-${{ steps.version.outputs.contents }}
+            bfren/nginx-php:php8.1-edge
+            bfren/nginx-php:php8.1-edge-${{ steps.version_major.outputs.contents }}
+            bfren/nginx-php:php8.1-edge-${{ steps.version_minor.outputs.contents }}
+            bfren/nginx-php:php8.1-edge-${{ steps.version.outputs.contents }}
             bfren/nginx-php:php${{ steps.php_revision.outputs.contents }}-edge
             bfren/nginx-php:php${{ steps.php_build.outputs.contents }}-edge
       -

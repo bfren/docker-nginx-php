@@ -1,4 +1,4 @@
-name: dev-8_0-edge
+name: dev-8_1-edge
 
 on:
   push:
@@ -7,13 +7,13 @@ on:
   workflow_dispatch:
 
 jobs:
-  test-8_0-edge:
+  test-8_1-edge:
     runs-on: ubuntu-latest
     steps:
       -
         name: Checkout code
         uses: actions/checkout@v2
-  build-8_0-edge:
+  build-8_1-edge:
     runs-on: ubuntu-latest
     steps:
       -
@@ -47,15 +47,17 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ./8.0-edge/Dockerfile
+          file: ./8.1-edge/Dockerfile
           build-args: |
             BF_IMAGE=${{ env.REPOSITORY_NAME }}
             BF_VERSION=${{ steps.version.outputs.contents }}
           push: ${{ startsWith(github.ref, 'refs/heads/') }}
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           tags: |
-            bfren/nginx-php:php8.0-edge-dev
-            bfren/nginx-php:php8.0-edge-${{ steps.version.outputs.contents }}-beta
+            bfren/nginx-php:php8-edge-dev
+            bfren/nginx-php:php8-edge-${{ steps.version.outputs.contents }}-beta
+            bfren/nginx-php:php8.1-edge-dev
+            bfren/nginx-php:php8.1-edge-${{ steps.version.outputs.contents }}-beta
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
