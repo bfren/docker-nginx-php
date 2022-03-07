@@ -1,4 +1,4 @@
-FROM bfren/nginx:edge-3.0.8
+FROM bfren/nginx:edge-3.0.9
 
 ARG BF_IMAGE
 ARG BF_VERSION
@@ -29,6 +29,5 @@ ENV \
 
 COPY ./overlay /
 COPY ./7.4-edge/overlay /
-COPY ./7.4-edge/PHP_BUILD /tmp/
 
 RUN bf-install

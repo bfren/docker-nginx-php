@@ -15,17 +15,17 @@ bf-echo "PHP version ${VERSION}."
 
 
 #======================================================================================================================
-# Install PHP dependencies and packages.
+# Install PHP and additional packages.
 #   (bash is required for php.ini configuration.)
 #======================================================================================================================
 
-bf-echo "Installing dependencies..."
-apk add --no-cache \
-    bash
-bf-done
-
 bf-echo "Installing PHP v${VERSION}..."
 chmod +x ./install-php && ./install-php ${VERSION}
+bf-done
+
+bf-echo "Installing additional packages..."
+apk add --no-cache \
+    bash
 bf-done
 
 bf-echo "Creating blank error log..."
