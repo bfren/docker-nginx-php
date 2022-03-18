@@ -20,7 +20,7 @@ jobs:
         name: Read PHP version - revision
         uses: bfren/read-file@v1
         with:
-          file: ./8.0-edge/PHP_REVISION
+          file: ./8.0-edge/overlay/tmp/PHP_REVISION
         id: php_revision
       -
         name: Read image version
