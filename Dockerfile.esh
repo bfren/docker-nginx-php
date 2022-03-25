@@ -1,5 +1,7 @@
 FROM bfren/nginx:<%= ${NGINX_BASE} %>-<%= ${BASE_REVISION} %>
 
+LABEL org.opencontainers.image.source="https://github.com/bfren/docker-nginx-php"
+
 ARG BF_IMAGE
 ARG BF_VERSION
 
