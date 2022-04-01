@@ -17,5 +17,6 @@ jobs:
       name: Create Release ${{ env.PR_TITLE }}
       uses: bfren/action-gh-release@v1
       with:
+        token: ${{ secrets.PAT }}
         name: ${{ env.PR_TITLE }}
         tag_name: ${{ env.PR_TITLE }}
