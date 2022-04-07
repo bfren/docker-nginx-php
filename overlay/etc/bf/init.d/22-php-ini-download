@@ -21,6 +21,11 @@ if [ "${PHP_INI}" = "development" ] || [ "${PHP_INI}" = "production" ] ; then
         && touch ${DOWNLOADED}
     exit 0
 
+elif [ "${PHP_INI}" = "custom" ] ; then
+
+    bf-echo "Custom PHP configuration enabled."
+    exit 0
+
 fi
 
 bf-error "Unsupported PHP_INI value '${PHP_INI}'."
