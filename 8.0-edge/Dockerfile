@@ -10,7 +10,8 @@ ENV \
     PHP_DIR="/etc/php8" \
     # www.conf override: log_level
     PHP_FPM_LOG_LEVEL="notice" \
-    # php.ini template to use
+    # php.ini template to use, or 'custom' if you want to bind your own custom php.ini -
+    # which will cause the other PHP_INI_* environment variables to be ignored
     PHP_INI="production" \
     # php.ini override: display_errors
     PHP_INI_DISPLAY_ERRORS= \
