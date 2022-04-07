@@ -8,17 +8,21 @@ export BF_E=`basename ${0}`
 # Optionally override configuration.
 #======================================================================================================================
 
-bf-echo "Setting php.ini configuration values..."
+if [ "${PHP_INI}" != "custom" ] ; then
 
-declare -A VALUES
-VALUES["display_errors"]="${PHP_INI_DISPLAY_ERRORS-}"
-VALUES["display_startup_errors"]="${PHP_INI_DISPLAY_STARTUP_ERRORS-}"
-VALUES["error_log"]="${PHP_INI_ERROR_LOG-}"
-VALUES["error_reporting"]="${PHP_INI_ERROR_REPORTING-}"
-VALUES["memory_limit"]="${PHP_INI_MEMORY_LIMIT-}"
-VALUES["post_max_size"]="${PHP_INI_MAX_POST-}"
-VALUES["session.gc_maxlifetime"]="${PHP_SESSION_MAX_LIFETIME-}"
-VALUES["upload_max_filesize"]="${PHP_INI_MAX_UPLOAD-}"
+    bf-echo "Setting php.ini configuration values..."
 
-source ${BF_INC}/php-replace-ini.sh
-replace-ini VALUES ${PHP_DIR}/php.ini
+    declare -A VALUES
+    VALUES["display_errors"]="${PHP_INI_DISPLAY_ERRORS-}"
+    VALUES["display_startup_errors"]="${PHP_INI_DISPLAY_STARTUP_ERRORS-}"
+    VALUES["error_log"]="${PHP_INI_ERROR_LOG-}"
+    VALUES["error_reporting"]="${PHP_INI_ERROR_REPORTING-}"
+    VALUES["memory_limit"]="${PHP_INI_MEMORY_LIMIT-}"
+    VALUES["post_max_size"]="${PHP_INI_MAX_POST-}"
+    VALUES["session.gc_maxlifetime"]="${PHP_SESSION_MAX_LIFETIME-}"
+    VALUES["upload_max_filesize"]="${PHP_INI_MAX_UPLOAD-}"
+
+    source ${BF_INC}/php-replace-ini.sh
+    replace-ini VALUES ${PHP_DIR}/php.ini
+
+fi
