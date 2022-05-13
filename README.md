@@ -1,6 +1,6 @@
 # Docker Nginx PHP
 
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/bfren/docker-nginx-php) ![Docker Pulls](https://img.shields.io/docker/pulls/bfren/nginx-php?label=pulls) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/bfren/nginx-php/php8.0?label=size)<br/>
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/bfren/docker-nginx-php) ![Docker Pulls](https://img.shields.io/endpoint?url=https%3A%2F%2Fbfren.dev%2Fdocker%2Fpulls%2Fnginx-php) ![Docker Image Size](https://img.shields.io/endpoint?url=https%3A%2F%2Fbfren.dev%2Fdocker%2Fsize%2Fnginx-php)<br/>
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/bfren/docker-nginx-php/dev-7_3?label=PHP+7.3) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/bfren/docker-nginx-php/dev-7_4?label=PHP+7.4) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/bfren/docker-nginx-php/dev-7_4-edge?label=PHP+7.4+(edge)) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/bfren/docker-nginx-php/dev-8_0?label=PHP+8.0) ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/bfren/docker-nginx-php/dev-8_0-edge?label=PHP+8.0+(edge))
 
 [Docker Repository](https://hub.docker.com/r/bfren/nginx-php) - [bfren ecosystem](https://github.com/bfren/docker)
