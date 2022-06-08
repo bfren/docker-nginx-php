@@ -1,4 +1,4 @@
-FROM bfren/nginx:edge-4.0.0
+FROM bfren/nginx:nginx1.22-4.0.0
 
 LABEL org.opencontainers.image.source="https://github.com/bfren/docker-nginx-php"
 
@@ -31,6 +31,6 @@ ENV \
     PHP_SESSION_MAX_LIFETIME=86400
 
 COPY ./overlay /
-COPY ./8.1-edge/overlay /
+COPY ./8.1/overlay /
 
 RUN bf-install

@@ -7,14 +7,14 @@ docker pull bfren/alpine
 BASE_REVISION="4.0.0"
 echo "Base: ${BASE_REVISION}"
 
-PHP_VERSIONS="7.3 7.4 8.0 8.0-edge 8.1-edge"
+PHP_VERSIONS="7.3 7.4 8.0 8.1"
 for V in ${PHP_VERSIONS} ; do
 
     echo "PHP ${V}"
     PHP_MAJOR="$(echo ${V} | cut -c 1)"
     NGINX_BASE=`cat ./${V}/NGINX_BASE`
 
-    if [ "${V}" = "8.1-edge" ] ; then
+    if [ "${V}" = "8.1" ] ; then
         PHP_DIR="/etc/php81"
         PHP_INI_ERROR_LOG="/var/log/php81/error.log"
     else
