@@ -16,6 +16,6 @@ PREFIX="${1}"
 # Install optional extensions (set by environment variable PHP_EXT).
 #======================================================================================================================
 
-for EXT in "${PHP_EXT}" ; do
+for EXT in ("${PHP_EXT}") ; do
     apk add --no-cache "${PREFIX}-${EXT}"
 done
