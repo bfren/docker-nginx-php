@@ -16,6 +16,9 @@ PREFIX="${1}"
 # Install optional extensions (set by environment variable PHP_EXT).
 #======================================================================================================================
 
-for EXT in ("${PHP_EXT}") ; do
-    apk add --no-cache "${PREFIX}-${EXT}"
+A=(${PHP_EXT-})
+for EXT in "${A[@]}" ; do
+    E="${PREFIX}-${EXT}"
+    bf-echo "Installing ${E}..." "php-ext"
+    apk add "${E}" 2>&1 > /dev/null
 done
