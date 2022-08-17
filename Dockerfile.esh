@@ -28,7 +28,9 @@ ENV \
     # php.ini override: max_upload
     PHP_INI_MAX_UPLOAD="64M" \
     # php.ini override: session_max_lifetime
-    PHP_SESSION_MAX_LIFETIME=86400
+    PHP_SESSION_MAX_LIFETIME=86400 \
+    # space-separated extensions to install on startup
+    PHP_EXT=
 
 COPY ./overlay /
 COPY ./<%= ${PHP_MINOR} %>/overlay /
