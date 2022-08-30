@@ -1,4 +1,4 @@
-FROM bfren/nginx:nginx1.18-4.0.11
+FROM bfren/nginx:nginx1.18-4.0.12
 
 LABEL org.opencontainers.image.source="https://github.com/bfren/docker-nginx-php"
 
