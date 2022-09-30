@@ -1,6 +1,0 @@
-https://dl-cdn.alpinelinux.org/alpine/v3.13/main
-https://dl-cdn.alpinelinux.org/alpine/v3.13/community
-@prevmain https://dl-cdn.alpinelinux.org/alpine/v3.12/main
-@prevcomm https://dl-cdn.alpinelinux.org/alpine/v3.12/community
-@edgemain https://dl-cdn.alpinelinux.org/alpine/edge/main
-@edgecomm https://dl-cdn.alpinelinux.org/alpine/edge/community
