@@ -4,18 +4,19 @@ set -euo pipefail
 
 
 #======================================================================================================================
-# Install PHP7.
+# Install PHP8.
 #======================================================================================================================
 
 apk add --no-cache \
-    php7@prevcomm=${1} \
-    php7-common@prevcomm=${1} \
-    php7-fpm@prevcomm=${1} \
-    php7-session@prevcomm=${1}
+    php82=${1} \
+    php82-common=${1} \
+    php82-fpm=${1} \
+    php82-session=${1}
 
 
 #======================================================================================================================
-# Create symlink so PHP can be called on the commandline using php-fpm.
+# Create symlinks so PHP can be called on the commandline using php and php-fpm.
 #======================================================================================================================
 
-ln -s /usr/sbin/php-fpm7 /usr/sbin/php-fpm
+[[ ! -e /usr/bin/php ]] && ln -s /usr/bin/php82 /usr/bin/php
+[[ ! -e /usr/sbin/php-fpm ]] && ln -s /usr/sbin/php-fpm82 /usr/sbin/php-fpm

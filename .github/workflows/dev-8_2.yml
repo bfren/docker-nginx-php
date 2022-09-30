@@ -1,12 +1,19 @@
-name: publish-7_3
+name: dev-8_2
 
 on:
-  release:
-    types: [published]
+  push:
+    branches: ['**']
+    tags-ignore: ['**']
   workflow_dispatch:
 
 jobs:
-  publish-7_3:
+  test-8_2:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout code
+        uses: actions/checkout@v3
+  build-8_2:
     runs-on: ubuntu-latest
     steps:
       -
@@ -16,24 +23,6 @@ jobs:
         name: Get repository name
         run: echo "REPOSITORY_NAME=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')" >> $GITHUB_ENV
         shell: bash
-      -
-        name: Read PHP version - revision
-        uses: bfren/read-file@v1
-        with:
-          file: ./7.3/overlay/tmp/PHP_REVISION
-        id: php_revision
-      -
-        name: Read image version
-        uses: bfren/read-file@v1
-        with:
-          file: ./VERSION_MAJOR
-        id: version_major
-      -
-        name: Read image version
-        uses: bfren/read-file@v1
-        with:
-          file: ./VERSION_MINOR
-        id: version_minor
       -
         name: Read image version
         uses: bfren/read-file@v1
@@ -65,23 +54,17 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: ./7.3/Dockerfile
+          file: ./8.2/Dockerfile
           build-args: |
             BF_IMAGE=${{ env.REPOSITORY_NAME }}
             BF_VERSION=${{ steps.version.outputs.contents }}
-          push: true
+          push: ${{ startsWith(github.ref, 'refs/heads/') }}
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           tags: |
-            bfren/nginx-php:php7.3
-            bfren/nginx-php:php7.3-${{ steps.version_major.outputs.contents }}
-            bfren/nginx-php:php7.3-${{ steps.version_minor.outputs.contents }}
-            bfren/nginx-php:php7.3-${{ steps.version.outputs.contents }}
-            bfren/nginx-php:php${{ steps.php_revision.outputs.contents }}
-            ghcr.io/bfren/nginx-php:php7.3
-            ghcr.io/bfren/nginx-php:php7.3-${{ steps.version_major.outputs.contents }}
-            ghcr.io/bfren/nginx-php:php7.3-${{ steps.version_minor.outputs.contents }}
-            ghcr.io/bfren/nginx-php:php7.3-${{ steps.version.outputs.contents }}
-            ghcr.io/bfren/nginx-php:php${{ steps.php_revision.outputs.contents }}
+            bfren/nginx-php:php8.2-dev
+            bfren/nginx-php:php8.2-${{ steps.version.outputs.contents }}-beta
+            ghcr.io/bfren/nginx-php:php8.2-dev
+            ghcr.io/bfren/nginx-php:php8.2-${{ steps.version.outputs.contents }}-beta
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}

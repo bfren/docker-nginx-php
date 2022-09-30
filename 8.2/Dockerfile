@@ -1,4 +1,4 @@
-FROM bfren/nginx:nginx1.18-4.0.15
+FROM bfren/nginx:nginx1.22-4.0.15
 
 LABEL org.opencontainers.image.source="https://github.com/bfren/docker-nginx-php"
 
@@ -7,7 +7,7 @@ ARG BF_VERSION
 
 ENV \
     # PHP config directory
-    PHP_DIR="/etc/php7" \
+    PHP_DIR="/etc/php82" \
     # www.conf override: log_level
     PHP_FPM_LOG_LEVEL="notice" \
     # php.ini template to use, or 'custom' if you want to bind your own custom php.ini -
@@ -18,7 +18,7 @@ ENV \
     # php.ini override: display_startup_errors
     PHP_INI_DISPLAY_STARTUP_ERRORS= \
     # php.ini override: error_log
-    PHP_INI_ERROR_LOG="/var/log/php7/error.log" \
+    PHP_INI_ERROR_LOG="/var/log/php82/error.log" \
     # php.ini override: err-r_reporting
     PHP_INI_ERROR_REPORTING= \
     # php.ini override: memory_limit
@@ -33,6 +33,6 @@ ENV \
     PHP_EXT=
 
 COPY ./overlay /
-COPY ./7.3/overlay /
+COPY ./8.2/overlay /
 
 RUN bf-install
