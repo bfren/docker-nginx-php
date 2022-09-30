@@ -17,6 +17,10 @@ for V in ${PHP_VERSIONS} ; do
     if [ "${V}" = "8.1" ] ; then
         PHP_DIR="/etc/php81"
         PHP_INI_ERROR_LOG="/var/log/php81/error.log"
+
+    elif [ "${V}" = "8.2" ] ; then
+        PHP_DIR="/etc/php82"
+        PHP_INI_ERROR_LOG="/var/log/php82/error.log"
     else
         PHP_DIR="/etc/php${PHP_MAJOR}"
         PHP_INI_ERROR_LOG="/var/log/php${PHP_MAJOR}/error.log"
