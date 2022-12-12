@@ -1,4 +1,4 @@
-name: dev-8_0
+name: dev
 
 on:
   push:
@@ -7,13 +7,16 @@ on:
   workflow_dispatch:
 
 jobs:
-  test-8_0:
+  test:
     runs-on: ubuntu-latest
     steps:
       -
         name: Checkout code
         uses: actions/checkout@v3
-  build-8_0:
+  build:
+    strategy:
+      matrix:
+        php: [ "7.4", "8.0", "8.1", "8.2" ]
     runs-on: ubuntu-latest
     steps:
       -
@@ -54,17 +57,17 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: ./8.0/Dockerfile
+          file: ./${{ matrix.php }}/Dockerfile
           build-args: |
             BF_IMAGE=${{ env.REPOSITORY_NAME }}
             BF_VERSION=${{ steps.version.outputs.contents }}
           push: ${{ startsWith(github.ref, 'refs/heads/') }}
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           tags: |
-            bfren/nginx-php:php8.0-dev
-            bfren/nginx-php:php8.0-${{ steps.version.outputs.contents }}-beta
-            ghcr.io/bfren/nginx-php:php8.0-dev
-            ghcr.io/bfren/nginx-php:php8.0-${{ steps.version.outputs.contents }}-beta
+            bfren/nginx-php:php${{ matrix.php }}-dev
+            bfren/nginx-php:php${{ matrix.php }}-${{ steps.version.outputs.contents }}-beta
+            ghcr.io/bfren/nginx-php:php${{ matrix.php }}-dev
+            ghcr.io/bfren/nginx-php:php${{ matrix.php }}-${{ steps.version.outputs.contents }}-beta
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
