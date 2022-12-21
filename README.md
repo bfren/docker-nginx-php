@@ -6,10 +6,10 @@
 
 Nginx plus PHP (7.4, 8.0, 8.1 and 8.2) - no SSL support etc, designed to be used behind a proxy server.  Minimal PHP packages are installed:
 
-* `php7` or `php8`
-* `php7-common` or `php8-common`
-* `php7-fpm` or `php8-fpm`
-* `php7-session` or `php8-session`
+* `php`
+* `php-common`
+* `php-fpm`
+* `php-session`
 
 Nginx is setup by default to run PHP in FPM mode.
 
