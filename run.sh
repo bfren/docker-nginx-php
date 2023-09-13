@@ -1,9 +1,10 @@
 #!/bin/sh
 
 IMAGE=`cat VERSION`
-PHP=${1:-8.0}
+PHP=${1:-8.2}
 
 docker buildx build \
+    --load \
     --build-arg BF_IMAGE=nginx-php \
     --build-arg BF_VERSION=${IMAGE} \
     -f ${PHP}/Dockerfile \
