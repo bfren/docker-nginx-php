@@ -1,0 +1,7 @@
+{
+    "error_log": "",
+    "memory_limit": "256M",
+    "post_max_size": "64M",
+    "session.gc_maxlifetime": "86400",
+    "upload_max_filesize": "64M"
+}

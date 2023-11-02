@@ -1,41 +1,34 @@
-#!/bin/sh
+#!/usr/bin/nu
 
-set -euo pipefail
-export BF_E=`basename ${0}`
+use bf
+use bf-php
 
+# Setup and install PHP
+def main [] {
+    # get PHP version and call installation script
+    cd /tmp
+    let version = bf fs read ./PHP_BUILD
+    bf write $"Installing PHP v($version)."
+    let packages = [
+        $"(bf env PHP_PREFIX)=($version)"
+        $"(bf env PHP_PREFIX)-fpm=($version)"
+        $"(bf env PHP_PREFIX)-session=($version)"
+    ]
+    bf pkg install $packages
 
-#======================================================================================================================
-# Get PHP version.
-#======================================================================================================================
+    # create symlinks so PHP can be called on the commandline using php and php-fpm
+    let php = "/usr/bin/php"
+    let fpm = "/usr/sbin/php-fpm"
+    bf write debug $"Creating symlinks to ($php) and ($fpm)."
+    if ($php | path type) != "symlink" { ^ln -f $"/usr/bin/(bf env PHP_PREFIX)" $php }
+    if ($fpm | path type) != "symlink" { ^ln -f $"/usr/sbin/(bf env PHP_PREFIX | str replace "php" "php-fpm")" $fpm }
 
-cd /tmp
+    # save PHP version to build log
+    bf build add PHP $version
 
-VERSION=$(cat PHP_BUILD)
-bf-echo "PHP version ${VERSION}."
+    # download production php.ini file
+    bf-php ini
 
-
-#======================================================================================================================
-# Install PHP and additional packages.
-#   (bash is required for php.ini configuration.)
-#======================================================================================================================
-
-bf-echo "Installing PHP v${VERSION}..."
-chmod +x ./install-php && ./install-php ${VERSION}
-bf-done
-
-bf-echo "Installing additional packages..."
-apk add --no-cache \
-    bash
-bf-done
-
-bf-echo "Creating blank error log..."
-touch ${PHP_INI_ERROR_LOG}
-bf-done
-
-
-#======================================================================================================================
-# Cleanup.
-#======================================================================================================================
-
-bf-echo "Cleanup /www files."
-rm -f /www/index.html
+    # make init script executable
+    ^chmod +x /init
+}
