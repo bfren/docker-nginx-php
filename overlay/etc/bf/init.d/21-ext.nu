@@ -15,7 +15,7 @@ def main [] {
     let version = bf build | get "PHP"
 
     # split list of extensions by space, build and install list of packages
-    let packages = $extensions | split row " " | each {|x| $"($prefix)-($x)=($version)" } | bf dump -t "packages"
+    let packages = $extensions | split row " " | each {|x| $"($prefix)-($x)=($version)" }
     bf pkg install $packages
 
     # return nothing
