@@ -1,5 +1,5 @@
 use bf
-use bf-nginx-php
+use bf-php
 bf env load
 
 # Install requested extensions
@@ -12,7 +12,7 @@ def main [] {
     }
 
     # split list of extensions by space and install
-    bf-nginx-php ext install ($extensions | split row " ")
+    bf-php ext install ($extensions | split row " ")
 
     # return nothing
     return
