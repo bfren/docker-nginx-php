@@ -13,4 +13,4 @@ docker buildx build \
     -t nginx-php${PHP}-dev \
     . \
     && \
-    docker run -it -e BF_DEBUG=1 nginx-php${PHP}-dev sh
+    docker run -it -e BF_DEBUG=1 -e BF_PHP_EXT=mysqli nginx-php${PHP}-dev sh

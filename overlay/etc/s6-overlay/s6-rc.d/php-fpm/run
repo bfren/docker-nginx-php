@@ -11,7 +11,7 @@ nu -c "use bf-nginx-php run ; run preflight"
 
 
 #======================================================================================================================
-# Start PHP FastCGI Process Manager.
+# Start PHP FastCGI Process Manager
 #
 # Flags:
 #   -F  run in foreground mode

@@ -1,4 +1,5 @@
 use bf
+use conf.nu
 
 export def preflight [] {
     # load environment
@@ -7,6 +8,9 @@ export def preflight [] {
     # manually set executing script
     bf env x_set --override run php-fpm
 
-    # if we get here we are ready to start PHP
-    bf write "Starting PHP in foreground mode."
+    # Test PHP FPM configuration
+    conf test
+
+    # if we get here we are ready to start PHP FPM
+    bf write "Starting PHP FPM in foreground mode."
 }
