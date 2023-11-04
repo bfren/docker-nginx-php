@@ -1,4 +1,5 @@
 use bf
+use bf-nginx-php
 bf env load
 
 # Install requested extensions
@@ -10,13 +11,8 @@ def main [] {
         return
     }
 
-    # get prefix and PHP version from build log
-    let prefix = bf env PHP_PREFIX
-    let version = bf build | get "PHP"
-
-    # split list of extensions by space, build and install list of packages
-    let packages = $extensions | split row " " | each {|x| $"($prefix)-($x)=($version)" }
-    bf pkg install $packages
+    # split list of extensions by space and install
+    bf-nginx-php ext install ($extensions | split row " ")
 
     # return nothing
     return
