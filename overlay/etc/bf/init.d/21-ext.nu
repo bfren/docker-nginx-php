@@ -5,7 +5,7 @@ bf env load
 # Install requested extensions
 def main [] {
     # get requested extensions
-    let extensions = bf env safe PHP_EXT
+    let extensions = bf env --safe PHP_EXT
     if $extensions == null {
         bf write debug "No extensions requested for installation."
         return
