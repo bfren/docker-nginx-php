@@ -7,12 +7,13 @@ use bf-php
 def main [] {
     # get PHP version and call installation script
     cd /tmp
-    let version = bf fs read ./PHP_BUILD
+    let prefix = bf env PHP_PREFIX
+    let version = bf fs read PHP_BUILD
     bf write $"Installing PHP v($version)."
     let packages = [
-        $"(bf env PHP_PREFIX)=($version)"
-        $"(bf env PHP_PREFIX)-fpm=($version)"
-        $"(bf env PHP_PREFIX)-session=($version)"
+        $"($prefix)=($version)"
+        $"($prefix)-fpm=($version)"
+        $"($prefix)-session=($version)"
     ]
     bf pkg install $packages
 
