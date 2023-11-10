@@ -21,8 +21,8 @@ def main [] {
     let php = "/usr/bin/php"
     let fpm = "/usr/sbin/php-fpm"
     bf write debug $"Creating symlinks to ($php) and ($fpm)."
-    if ($php | path type) != "symlink" { ^ln -f $"/usr/bin/(bf env PHP_PREFIX)" $php }
-    if ($fpm | path type) != "symlink" { ^ln -f $"/usr/sbin/(bf env PHP_PREFIX | str replace "php" "php-fpm")" $fpm }
+    if ($php | bf fs is_not_symlink) { ^ln -f $"/usr/bin/(bf env PHP_PREFIX)" $php }
+    if ($fpm | bf fs is_not_symlink) { ^ln -f $"/usr/sbin/(bf env PHP_PREFIX | str replace "php" "php-fpm")" $fpm }
 
     # save PHP version to build log
     bf build add PHP $version
