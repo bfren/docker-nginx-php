@@ -1,16 +1,20 @@
-#!/command/with-contenv bash
+#!/bin/withenv sh
 
 set -euo pipefail
-export BF_E="${PWD##*/}/$(basename ${0})"
 
 
 #======================================================================================================================
-# Start PHP FastCGI Process Manager.
+# Run preflight checks
+#======================================================================================================================
+
+nu -c "use bf-nginx-php run ; run preflight"
+
+
+#======================================================================================================================
+# Start PHP FastCGI Process Manager
 #
-# php-fpm flags
-#   -F  run in foreground mode (allows S6 to supervise the service)
+# Flags:
+#   -F  run in foreground mode
 #======================================================================================================================
 
-VERSION=$(php -r "echo PHP_VERSION;")
-bf-echo "Starting PHP v${VERSION} - FastCGI Process Manager."
 php-fpm -F

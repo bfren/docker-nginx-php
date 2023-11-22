@@ -1,11 +1,3 @@
-#!/command/with-contenv bash
+#!/usr/bin/nu
 
-set -euo pipefail
-export BF_E=`basename ${0}`
-
-
-#======================================================================================================================
-# Call php-clean-sessions executable.
-#======================================================================================================================
-
-php-clean-sessions
+use bf-nginx-php sessions clean ; clean
