@@ -21,5 +21,5 @@ export def clean [] {
     ] | str join " "
 
     # run as user www
-    { ^bf-x-as www php $args } | bf handle -c | exit $in
+    { ^bf-x-as www php $args } | bf handle -c sessions/clean | exit $in
 }
