@@ -1,7 +1,16 @@
 {
+    "allow_url_fopen": "Off",
+    "disable_functions": "phpinfo",
     "error_log": "",
     "memory_limit": "256M",
+    "open_basedir": "/www:/etc/bf/src:/tmp/php",
     "post_max_size": "64M",
+    "session.cookie_httponly": 1,
+    "session.cookie_secure": 1,
     "session.gc_maxlifetime": "86400",
-    "upload_max_filesize": "64M"
+    "session.name": "bf-nginx-php-sessid",
+    "session.save_path": "/tmp/php/session",
+    "session.use_strict_mode": 1,
+    "upload_max_filesize": "64M",
+    "upload_tmp_dir": "/tmp/php/upload"
 }
