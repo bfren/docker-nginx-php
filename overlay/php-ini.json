@@ -3,7 +3,6 @@
     "disable_functions": "phpinfo",
     "error_log": "",
     "memory_limit": "256M",
-    "open_basedir": "/www:/etc/bf/src:/tmp/php",
     "post_max_size": "64M",
     "session.cookie_httponly": 1,
     "session.cookie_secure": 1,
