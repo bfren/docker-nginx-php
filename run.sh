@@ -1,7 +1,7 @@
 #!/bin/sh
 
 IMAGE=`cat VERSION`
-PHP=${1:-8.2}
+PHP=${1:-8.3}
 
 docker buildx build \
     --load \
