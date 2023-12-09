@@ -8,8 +8,6 @@
     "session.cookie_secure": 1,
     "session.gc_maxlifetime": "86400",
     "session.name": "bf-nginx-php-sessid",
-    "session.save_path": "/tmp/php/session",
     "session.use_strict_mode": 1,
-    "upload_max_filesize": "64M",
-    "upload_tmp_dir": "/tmp/php/upload"
+    "upload_max_filesize": "64M"
 }
