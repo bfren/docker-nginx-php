@@ -4,23 +4,20 @@
 
 [Docker Repository](https://hub.docker.com/r/bfren/nginx-php) - [bfren ecosystem](https://github.com/bfren/docker)
 
-Nginx plus PHP (7.4, 8.0, 8.1 and 8.2) - no SSL support etc, designed to be used behind a proxy server.  Minimal PHP packages are installed:
+Nginx plus PHP (7.4, 8.0, 8.1, 8.2 and 8.3) - no SSL support etc, designed to be used behind a proxy server.  Minimal PHP packages are installed:
 
 * `php`
 * `php-common`
 * `php-fpm`
 * `php-session`
 
-Nginx is setup by default to run PHP in FPM mode.
-
-Additionally, `bash` is installed as it is required by some of the setup scripts.
+Nginx is setup by default to run PHP in FPM mode.  To override values in www.conf map a `www-conf.json` file to root - see `www-conf-sample.json`.  Values in the php.ini file can be overridden in the same way - see [Docker PHP](https://github.com/bfren/docker-php) for more information and a sample file.
 
 ## Contents
 
 * [Ports](#ports)
 * [Volumes](#volumes)
 * [Environment Variables](#environment-variables)
-* [Helper Functions](#helper-functions)
 * [Nginx Configuration Helpers](#nginx-configuration-helpers)
 * [Licence / Copyright](#licence)
 
@@ -36,36 +33,7 @@ Additionally, `bash` is installed as it is required by some of the setup scripts
 
 ## Environment Variables
 
-### php.ini
-
-| Variable  | Values                        | Description                                                                    | Default      |
-| --------- | ----------------------------- | ------------------------------------------------------------------------------ | ------------ |
-| `PHP_INI` | 'production' or 'development' | Defines which official php.ini template to use, "production" or "development". | 'production' |
-
-The following environment variables will override values in `php.ini` (see [here](https://www.php.net/manual/en/ini.list.php)):
-
-| Variable                         | Directive              | Default Value |
-| -------------------------------- | ---------------------- | ------------- |
-| `PHP_INI_DISPLAY_ERRORS`         | display_errors         | *None*        |
-| `PHP_INI_DISPLAY_STARTUP_ERRORS` | display_startup_errors | *None*        |
-| `PHP_INI_ERROR_REPORTING`        | error_reporting        | *None*        |
-| `PHP_INI_MEMORY_LIMIT`           | memory_limit           | 256M          |
-| `PHP_INI_MAX_UPLOAD`             | upload_max_filesize    | 64M           |
-| `PHP_INI_MAX_POST`               | post_max_size          | 64M           |
-
-### FPM Configuration
-
-The following environment variables will override values in `php-fpm.d/www.conf` (see [here](https://www.php.net/manual/en/install.fpm.configuration.php)):
-
-| Variable            | Directive | Default Value |
-| ------------------- | --------- | ------------- |
-| `PHP_FPM_LOG_LEVEL` | log_level | 'notice'      |
-
-## Helper Functions
-
-| Function             | Arguments | Description                                                 |
-| -------------------- | --------- | ----------------------------------------------------------- |
-| `php-clean-sessions` | *None*    | Cleans PHP session information - the cron runs this hourly. |
+See [Docker PHP](https://github.com/bfren/docker-php) for configuration instructions.
 
 ## Nginx Configuration Helpers
 
