@@ -21,5 +21,6 @@ export def clean [] {
     ]
 
     # run as user www
-    { ^s6-setuidgid www php ...$args } | bf handle -c sessions/clean | exit $in
+    let code = { ^s6-setuidgid www php ...$args } | bf handle -c sessions/clean
+    if $code != 0 { exit $code }
 }
