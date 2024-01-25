@@ -18,8 +18,8 @@ export def clean [] {
         "-d" "session.gc_divisor=1"
         "-d" $"session.gc_maxlifetime=($max_lifetime)"
         "-r" "\"session_start(); session_destroy();\""
-    ] | str join " "
+    ]
 
     # run as user www
-    { ^bf-x-as www php $args } | bf handle -c sessions/clean | exit $in
+    { ^s6-setuidgid www php ...$args } | bf handle -c sessions/clean | exit $in
 }
