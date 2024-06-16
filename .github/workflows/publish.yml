@@ -82,11 +82,13 @@ jobs:
             bfren/nginx-php:php${{ matrix.php }}-${{ steps.version_minor.outputs.contents }}
             bfren/nginx-php:php${{ matrix.php }}-${{ steps.version.outputs.contents }}
             bfren/nginx-php:php${{ steps.php_revision.outputs.contents }}
+            bfren/nginx-php:php${{ steps.php_revision.outputs.contents }}-${{ steps.version.outputs.contents }}
             ghcr.io/bfren/nginx-php:php${{ matrix.php }}
             ghcr.io/bfren/nginx-php:php${{ matrix.php }}-${{ steps.version_major.outputs.contents }}
             ghcr.io/bfren/nginx-php:php${{ matrix.php }}-${{ steps.version_minor.outputs.contents }}
             ghcr.io/bfren/nginx-php:php${{ matrix.php }}-${{ steps.version.outputs.contents }}
             ghcr.io/bfren/nginx-php:php${{ steps.php_revision.outputs.contents }}
+            ghcr.io/bfren/nginx-php:php${{ steps.php_revision.outputs.contents }}-${{ steps.version.outputs.contents }}
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
