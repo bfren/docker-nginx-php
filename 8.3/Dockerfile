@@ -2,7 +2,7 @@
 # STAGE 0: get Nu scripts from the PHP image overlay
 #======================================================================================================================
 
-FROM alpine AS php
+FROM ghcr.io/bfren/alpine AS php
 
 WORKDIR /tmp
 RUN \
