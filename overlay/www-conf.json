@@ -1,3 +1,5 @@
 {
-    "clear_env": "yes"
+    "catch_workers_output": "yes",
+    "clear_env": "yes",
+    "decorate_workers_output": "no"
 }
