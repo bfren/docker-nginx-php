@@ -13,4 +13,4 @@ docker buildx build \
     -t ${TAG} \
     . \
     && \
-    docker run --entrypoint "/usr/bin/env" ${TAG} -i nu -c "use bf test ; test"
+    docker run --entrypoint /test ${TAG}
