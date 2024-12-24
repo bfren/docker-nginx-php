@@ -8,7 +8,7 @@ WORKDIR /tmp
 RUN \
     # get the Nu scripts from the PHP image overlay
     echo "Cloning Alpine overlay." && \
-    apk add git && git clone --branch v2.3.1 https://github.com/bfren/docker-php.git && \
+    apk add git && git clone --branch v2.3.2 https://github.com/bfren/docker-php.git && \
     mkdir /overlay && \
     mv docker-php/overlay/etc /overlay/
 
