@@ -8,7 +8,7 @@ export def clean [] {
     # get session max lifetime (if set)
     let ini_override = bf env PHP_INI_OVERRIDE
     let max_lifetime =  match ($ini_override | path exists) {
-        true => ($ini_override | open | get --ignore-errors "session.gc_maxlifetime")
+        true => ($ini_override | open | get --optional "session.gc_maxlifetime")
         false => 86400
     }
 
