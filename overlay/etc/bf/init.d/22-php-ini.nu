@@ -10,4 +10,7 @@ export def main [] {
         let override_values = bf fs read $x | from json
         bf-php ini $override_values
     } }
+
+    # return nothing
+    return
 }
