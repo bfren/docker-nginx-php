@@ -1,0 +1,7 @@
+{
+    "session.cookie_httponly": "1",
+    "session.cookie_secure": "1",
+    "session.gc_maxlifetime": "86400",
+    "session.name": "bf-nginx-php-sessid",
+    "session.use_strict_mode": "1"
+}
