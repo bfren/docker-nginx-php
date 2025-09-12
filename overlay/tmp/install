@@ -13,6 +13,7 @@ def main [] {
     let packages = [
         $"($prefix)=($version)"
         $"($prefix)-fpm=($version)"
+        $"($prefix)-opcache=($version)"
         $"($prefix)-session=($version)"
     ]
     bf pkg install $packages

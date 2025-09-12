@@ -11,7 +11,7 @@ Nginx plus PHP (7.4, 8.0, 8.1, 8.2 and 8.3) - no SSL support etc, designed to be
 * `php-fpm`
 * `php-session`
 
-Nginx is setup by default to run PHP in FPM mode.  To override values in www.conf map a `www-conf.json` file to root - see `www-conf-sample.json`.  Values in the php.ini file can be overridden in the same way - see [Docker PHP](https://github.com/bfren/docker-php) for more information and a sample file.
+Nginx is setup by default to run PHP in FPM mode.  To override values in www.conf map a `xx.json` file to `/etc/bf/php-fpm.d` - see `www-conf-sample.json`.  Values in the php.ini file can be overridden in the same way - see [Docker PHP](https://github.com/bfren/docker-php) for more information and a sample file.
 
 ## Contents
 

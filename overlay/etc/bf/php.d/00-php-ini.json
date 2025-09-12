@@ -1,0 +1,6 @@
+{
+    "allow_url_fopen": "Off",
+    "disable_functions": "phpinfo",
+    "error_log": "",
+    "memory_limit": "256M"
+}
