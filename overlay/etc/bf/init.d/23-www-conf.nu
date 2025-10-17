@@ -15,4 +15,7 @@ export def main [] {
         let override_values = bf fs read $x | from json
         bf-php ini insert_or_replace_values_in_file $fpm_conf $override_values
     } }
+
+    # return nothing
+    return
 }
