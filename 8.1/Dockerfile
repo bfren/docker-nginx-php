@@ -2,7 +2,7 @@
 # STAGE 0: get Nu scripts from the PHP image overlay
 #======================================================================================================================
 
-FROM ghcr.io/bfren/alpine AS php
+FROM quay.io/bfren/alpine AS php
 
 WORKDIR /tmp
 RUN \
@@ -17,7 +17,7 @@ RUN \
 # STAGE 1: create final image
 #======================================================================================================================
 
-FROM ghcr.io/bfren/nginx:nginx1.24-alpine3.19-6.5.7 AS final
+FROM quay.io/bfren/nginx:nginx1.24-alpine3.19-6.5.7 AS final
 COPY --from=php /overlay /
 
 LABEL org.opencontainers.image.source="https://github.com/bfren/docker-nginx-php"
