@@ -31,12 +31,12 @@ COPY ./8.5/overlay /
 
 ENV \
     # PHP config directory
-    BF_PHP_DIR="/etc/php84" \
+    BF_PHP_DIR="/etc/php85" \
     # offical php.ini template to download
     BF_PHP_ENV="production" \
     # space-separated extensions to install on startup
     BF_PHP_EXT= \
     # PHP package prefix
-    BF_PHP_PREFIX="php84"
+    BF_PHP_PREFIX="php85"
 
 RUN bf-install
