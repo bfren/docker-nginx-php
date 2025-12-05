@@ -4,9 +4,9 @@ set -euo pipefail
 
 docker pull bfren/alpine
 
-BASE_VERSION="7.0.1"
-PHP_BRANCH="v3.0.1"
-PHP_VERSIONS="7.4 8.0 8.1 8.2 8.3 8.4"
+BASE_VERSION="7.1.0"
+PHP_BRANCH="v3.1.0"
+PHP_VERSIONS="7.4 8.0 8.1 8.2 8.3 8.4 8.5"
 
 for V in ${PHP_VERSIONS} ; do
 

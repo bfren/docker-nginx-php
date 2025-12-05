@@ -13,10 +13,14 @@ def main [] {
     let packages = [
         $"($prefix)=($version)"
         $"($prefix)-fpm=($version)"
-        $"($prefix)-opcache=($version)"
         $"($prefix)-session=($version)"
     ]
     bf pkg install $packages
+
+    # opcache is part of PHP >= 8.5
+    if not ($version | bf version is_at_least "8.5.0") {
+        bf pkg install [$"($prefix)-opcache=($version)"]
+    }
 
     # create symlinks so PHP can be called on the commandline using php and php-fpm
     let php = "/usr/bin/php"

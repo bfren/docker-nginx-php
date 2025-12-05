@@ -2,7 +2,7 @@
 
 IMAGE=nginx-php
 VERSION=`cat VERSION`
-PHP=${1:-8.4}
+PHP=${1:-8.5}
 TAG=${IMAGE}-test
 
 docker buildx build \

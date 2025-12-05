@@ -4,7 +4,7 @@
 
 [Docker Repository](https://hub.docker.com/r/bfren/nginx-php) - [bfren ecosystem](https://github.com/bfren/docker)
 
-Nginx plus PHP (7.4, 8.0, 8.1, 8.2 and 8.3) - no SSL support etc, designed to be used behind a proxy server.  Minimal PHP packages are installed:
+Nginx plus PHP (7.4, 8.0, 8.1, 8.2, 8.3, 8.4 and 8.5) - no SSL support etc, designed to be used behind a proxy server.  Minimal PHP packages are installed:
 
 * `php`
 * `php-common`
