@@ -8,7 +8,7 @@ WORKDIR /tmp
 RUN \
     # get the Nu scripts from the PHP image overlay
     echo "Cloning Alpine overlay." && \
-    apk add git && git clone --branch v3.1.0 https://github.com/bfren/docker-php.git && \
+    apk add git && git clone --branch v3.1.1 https://github.com/bfren/docker-php.git && \
     mkdir /overlay && \
     mv docker-php/overlay/etc /overlay/
 
@@ -17,7 +17,7 @@ RUN \
 # STAGE 1: create final image
 #======================================================================================================================
 
-FROM quay.io/bfren/nginx:nginx1.28-alpine3.23-7.1.0 AS final
+FROM quay.io/bfren/nginx:nginx1.28-alpine3.23-7.1.1 AS final
 COPY --from=php /overlay /
 
 LABEL org.opencontainers.image.source="https://github.com/bfren/docker-nginx-php"
