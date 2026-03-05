@@ -1,4 +1,5 @@
 use bf
+use ini.nu
 
 # Clean sessions as user www
 export def clean [] {
@@ -6,11 +7,8 @@ export def clean [] {
     bf env load
 
     # get session max lifetime (if set)
-    let ini_override = bf env PHP_INI_OVERRIDE
-    let max_lifetime =  match ($ini_override | path exists) {
-        true => ($ini_override | open | get --optional "session.gc_maxlifetime")
-        false => 86400
-    }
+    let ini_override = bf env PHP_INI_OVERRIDE_D
+    let max_lifetime = ini get_override_values | default 86400 session.gc_maxlifetime
 
     # hat-tip https://www.getpagespeed.com/server-setup/php/cleanup-php-sessions-like-a-pro
     let args = [
