@@ -14,12 +14,15 @@ export def get_override_values []: nothing -> record {
     #   sorted alphabetically
     #   read as json
     #   reduce array so later values override earlier values
-    return $"($ini_override)/*.json"
+    let override_values = $"($ini_override)/*.json"
         | into glob
         | ls --full-paths $in
         | get name
         | sort --natural
         | each {|x| bf fs read $x | from json }
         | reduce {|it, acc| $acc | merge $it }
+        | sort --natural
         | into record
+
+    return $override_values
 }
