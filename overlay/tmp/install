@@ -39,5 +39,5 @@ def main [] {
     ^chmod +x /init
 
     # add bf-nginx-php module to config
-    bf config use bf-nginx-php
+    bf config use_mod bf-nginx-php
 }
