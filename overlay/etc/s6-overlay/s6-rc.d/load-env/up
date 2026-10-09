@@ -1,0 +1,3 @@
+define X /etc/s6-overlay/scripts/load-env
+foreground { chmod +x ${X} }
+${X}
