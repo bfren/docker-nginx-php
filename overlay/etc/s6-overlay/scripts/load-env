@@ -1,0 +1,23 @@
+#!/bin/withenv sh
+
+set -euo pipefail
+
+
+#======================================================================================================================
+# Store environment variables so PHP can access them
+#======================================================================================================================
+
+if [ "${BF_PHP_LOAD_ENV-}" -ne "1" ] ; then
+    exit 0
+fi
+
+CONF=${BF_PHP_FPM_D}/99-bf-env.conf
+{
+    echo '[www]'
+    for f in /etc/bf/env.d/BF_PHP_*; do
+        [ -e "$f" ] || continue
+        V=${f##*/}
+        printf 'env[%s] = $%s\n' "${V}" "${V}"
+    done
+} > "${CONF}.tmp"
+mv "${CONF}.tmp" "${CONF}"

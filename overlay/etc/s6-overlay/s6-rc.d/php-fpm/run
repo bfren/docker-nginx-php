@@ -17,4 +17,4 @@ nu -c "use bf-nginx-php run ; run preflight"
 #   -F  run in foreground mode
 #======================================================================================================================
 
-php-fpm -F
+exec php-fpm -F
