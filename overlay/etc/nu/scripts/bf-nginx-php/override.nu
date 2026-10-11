@@ -1,12 +1,11 @@
 use bf
 
-# Get php.ini override values
-export def get_override_values []: nothing -> record {
-    # get variables
-    let ini_override = bf env PHP_INI_OVERRIDE_D
-
+# Get override values for php.ini or www.conf
+export def get_values [
+    override_d: string    # path to directory containing json override files
+]: nothing -> record {
     # if the override path does not exist return nothing
-    if ($ini_override | bf fs is_not_dir) {
+    if ($override_d | bf fs is_not_dir) {
         return {}
     }
 
@@ -14,7 +13,7 @@ export def get_override_values []: nothing -> record {
     #   sorted alphabetically
     #   read as json
     #   reduce array so later values override earlier values
-    let override_values = $"($ini_override)/*.json"
+    let override_values = $"($override_d)/*.json"
         | into glob
         | ls --full-paths $in
         | get name
