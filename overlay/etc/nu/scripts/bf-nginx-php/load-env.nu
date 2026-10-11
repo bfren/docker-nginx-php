@@ -6,7 +6,7 @@ export def main [
 ]: nothing -> nothing {
     let conf = bf env PHP_FPM_CONF
     $variables
-        | each {|v| $"env[$($v.override | default $v.key)] = ($v.key)" }
+        | each {|v| $"env[($v.override | default $v.key)] = $($v.key)" }
         | prepend "[www]"
         | str join "\n"
         | echo $"\n($in)\n"
