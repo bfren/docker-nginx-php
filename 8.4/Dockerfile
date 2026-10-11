@@ -37,6 +37,8 @@ ENV \
     # space-separated extensions to install on startup
     BF_PHP_EXT= \
     # PHP package prefix
-    BF_PHP_PREFIX="php84"
+    BF_PHP_PREFIX="php84" \
+    # set to 1 if you want to load BF_PHP_ environment variables into PHP
+    BF_PHP_LOAD_ENV=0
 
 RUN bf-install
