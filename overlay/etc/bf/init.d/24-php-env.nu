@@ -16,7 +16,7 @@ export def main [] {
     let variables = $env
         | transpose key value
         | where {|x| $x.key | str starts-with "BF_PHP_" }
-        | get key
+        | select key override?
         | sort --natural
 
     # append variables to configuration file
