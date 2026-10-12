@@ -1,20 +1,25 @@
-#!/bin/withenv sh
+#!/usr/bin/nu
 
-set -euo pipefail
+use bf
+use bf-nginx-php [conf]
+use bf-s6
+bf env load
 
+# Start the PHP FastCGI Process Manager
+def main [
+    name: string    # The service name, passed by s6-supervise
+] {
+    # set executable name - used to make log output more useful
+    bf env x_set --override run $name
 
-#======================================================================================================================
-# Run preflight checks
-#======================================================================================================================
+    # run checks before executing service
+    conf test
 
-nu -c "use bf-nginx-php run ; run preflight"
-
-
-#======================================================================================================================
-# Start PHP FastCGI Process Manager
-#
-# Flags:
-#   -F  run in foreground mode
-#======================================================================================================================
-
-exec php-fpm -F
+    # flags:
+    #   -F  run in foreground mode
+    bf write "Starting PHP FPM in foreground mode."
+    let args = [
+        "-F"
+    ]
+    bf-s6 svc launch php-fpm ...$args
+}
