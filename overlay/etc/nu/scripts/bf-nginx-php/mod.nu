@@ -1,5 +1,4 @@
-export module conf.nu
-export module load-env.nu
-export module override.nu
-export module run.nu
-export module sessions.nu
+export use conf.nu
+export use load-env.nu
+export use override.nu
+export use sessions.nu
