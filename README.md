@@ -230,7 +230,7 @@ Put your site in `overlay/www/public` (or mount it), nginx configuration in `ove
 ./run.sh         # builds the PHP 8.5 image and opens a shell (port 3000)
 ```
 
-This image has no tests of its own. `/test` runs the tests inherited from the base images, and fails if tests don't execute.
+`/test` runs this image's tests alongside the base images' tests, and fails if tests don't execute. As well as [the PHP image's tests](https://github.com/bfren/docker-php#testing), they check that `php-fpm` links to the versioned executable, the session and OPcache extensions are loaded, the PHP-FPM configuration is valid, override files merge in the right order, and `BF_PHP_LOAD_ENV` writes the right lines to `www.conf`.
 
 ## Troubleshooting
 
