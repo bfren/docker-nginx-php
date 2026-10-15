@@ -260,10 +260,6 @@ PHP can't see the container's environment - see [Environment variables in PHP](#
 
 One container per site is simpler to run and back up, and S6 supervises both processes - if either fails, the container stops so Docker can restart it.
 
-### Can I use Apache instead?
-
-Yes - see [Apache + PHP](https://github.com/bfren/docker-apache-php).
-
 ## Licence
 
 > [MIT](https://mit.bfren.dev/2020)
