@@ -225,8 +225,9 @@ Put your site in `overlay/www/public` (or mount it), nginx configuration in `ove
 ## Testing
 
 ```sh
-./test.sh        # builds the PHP 8.5 image and runs /test
-./test.sh 8.2    # the same for PHP 8.2
+./test.nu        # builds the PHP 8.5 image and runs /test
+./test.nu 8.2    # the same for PHP 8.2
+./test.nu --all  # every version, in parallel
 ./run.sh         # builds the PHP 8.5 image and opens a shell (port 3000)
 ```
 
