@@ -31,6 +31,24 @@ jobs:
           file: ./VERSION
         id: version
       -
+        name: Read PHP version - revision
+        uses: bfren/read-file@v2
+        with:
+          file: ./${{ matrix.php }}/overlay/tmp/PHP_REVISION
+        id: php_revision
+      -
+        name: Read image version
+        uses: bfren/read-file@v2
+        with:
+          file: ./VERSION_MAJOR
+        id: version_major
+      -
+        name: Read image version
+        uses: bfren/read-file@v2
+        with:
+          file: ./VERSION_MINOR
+        id: version_minor
+      -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v4
       -
@@ -79,9 +97,17 @@ jobs:
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           tags: |
             bfren/nginx-php:php${{ matrix.php }}-dev
+            bfren/nginx-php:php${{ matrix.php }}-${{ steps.version_major.outputs.contents }}-dev
+            bfren/nginx-php:php${{ matrix.php }}-${{ steps.version_minor.outputs.contents }}-dev
             bfren/nginx-php:php${{ matrix.php }}-${{ steps.version.outputs.contents }}-dev
+            bfren/nginx-php:php${{ steps.php_revision.outputs.contents }}-dev
+            bfren/nginx-php:php${{ steps.php_revision.outputs.contents }}-${{ steps.version.outputs.contents }}-dev
             quay.io/bfren/nginx-php:php${{ matrix.php }}-dev
+            quay.io/bfren/nginx-php:php${{ matrix.php }}-${{ steps.version_major.outputs.contents }}-dev
+            quay.io/bfren/nginx-php:php${{ matrix.php }}-${{ steps.version_minor.outputs.contents }}-dev
             quay.io/bfren/nginx-php:php${{ matrix.php }}-${{ steps.version.outputs.contents }}-dev
+            quay.io/bfren/nginx-php:php${{ steps.php_revision.outputs.contents }}-dev
+            quay.io/bfren/nginx-php:php${{ steps.php_revision.outputs.contents }}-${{ steps.version.outputs.contents }}-dev
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
