@@ -49,11 +49,10 @@ Open `http://localhost:8080`. Requests for files that don't exist are sent to `/
 * 🔒 Secure defaults: `allow_url_fopen` off, `phpinfo()` disabled, HTTP-only secure session cookies, and the environment hidden from PHP unless you choose otherwise
 * 🧹 Expired sessions cleaned every hour
 * 🗜️ Everything from [Nginx](https://github.com/bfren/docker-nginx#features): compression, helper files, logs, daily reload and a health check
-* 🖥️ Built for `linux/amd64`, `linux/arm64` and `linux/arm/v7`
 
 ## Tags
 
-Images are published to Docker Hub (`bfren/nginx-php`) and Quay.io (`quay.io/bfren/nginx-php`). Tags start with the PHP version.
+Images are published to Docker Hub (`bfren/nginx-php`) and Quay.io (`quay.io/bfren/nginx-php`) for `linux/amd64`, `linux/arm/v7` and `linux/arm64`. Tags start with the PHP version.
 
 | Tag                | Example           | Use when                                              |
 | ------------------ | ----------------- | ----------------------------------------------------- |
