@@ -3,5 +3,6 @@
     "session.cookie_secure": "1",
     "session.gc_maxlifetime": "86400",
     "session.name": "bf-nginx-php-sessid",
+    "session.upload_progress.enabled": "0",
     "session.use_strict_mode": "1"
 }

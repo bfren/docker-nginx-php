@@ -30,5 +30,6 @@ export def get_values__image_defaults_are_valid [] {
 
     assert equal "256M" $php_ini.memory_limit
     assert equal "1" ($php_ini | get "session.cookie_secure")
+    assert equal "0" ($php_ini | get "session.upload_progress.enabled")
     assert equal "yes" $www_conf.clear_env
 }
