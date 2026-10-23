@@ -46,7 +46,7 @@ Open `http://localhost:8080`. Requests for files that don't exist are sent to `/
 * 🐘 PHP 7.4, 8.0, 8.1, 8.2, 8.3, 8.4 and 8.5 - choose with the image tag
 * ⚡ PHP-FPM, with OPcache (and the JIT compiler on PHP 8) turned on
 * ⚙️ Override `php.ini` and PHP-FPM's `www.conf` with small JSON files
-* 🔒 Secure defaults: `allow_url_fopen` off, `phpinfo()` disabled, HTTP-only secure session cookies, and the environment hidden from PHP unless you choose otherwise
+* 🔒 Secure defaults: `allow_url_fopen` off, `phpinfo()` disabled, HTTP-only secure session cookies, session upload progress off, and the environment hidden from PHP unless you choose otherwise
 * 🧹 Expired sessions cleaned every hour
 * 🗜️ Everything from [Nginx](https://github.com/bfren/docker-nginx#features): compression, helper files, logs, daily reload and a health check
 
@@ -134,12 +134,12 @@ Include them with `include helpers/php-try-all.conf;` - see [Nginx](https://gith
 
 The official `php.ini` is downloaded when the image is built (see [PHP](https://github.com/bfren/docker-php#phpini)). At every start, the JSON files in `/etc/bf/php.d` are read in name order, later files replacing earlier values, and each value is set in `php.ini`. The image's defaults are:
 
-| File              | Settings                                                                                                   |
-| ----------------- | ---------------------------------------------------------------------------------------------------------- |
-| `00-php-ini.json` | `allow_url_fopen = Off`, `disable_functions = phpinfo`, `memory_limit = 256M`, `error_log` empty           |
-| `01-session.json` | Session cookies HTTP-only and secure (HTTPS only), strict mode, lifetime 1 day, name `bf-nginx-php-sessid` |
-| `02-upload.json`  | `post_max_size` and `upload_max_filesize` 64M                                                              |
-| `03-jit.json`     | OPcache on, with the `tracing` JIT and a 128M buffer                                                       |
+| File              | Settings                                                                                                                        |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `00-php-ini.json` | `allow_url_fopen = Off`, `disable_functions = phpinfo`, `memory_limit = 256M`, `error_log` empty                                |
+| `01-session.json` | Session cookies HTTP-only and secure (HTTPS only), strict mode, lifetime 1 day, name `bf-nginx-php-sessid`, upload progress off |
+| `02-upload.json`  | `post_max_size` and `upload_max_filesize` 64M                                                                                   |
+| `03-jit.json`     | OPcache on, with the `tracing` JIT and a 128M buffer                                                                            |
 
 To change or add settings, add your own file - e.g. mount `./php.json` to `/etc/bf/php.d/10-site.json`:
 
