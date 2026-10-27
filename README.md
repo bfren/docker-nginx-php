@@ -6,7 +6,7 @@
 
 ## Introduction
 
-An image for PHP websites: [nginx](https://github.com/bfren/docker-nginx) and PHP-FPM in one container, with PHP 7.4 to 8.5. [Baïkal](https://github.com/bfren/docker-baikal), [FreshRSS](https://github.com/bfren/docker-freshrss) and [WordPress](https://github.com/bfren/docker-wordpress) are built on it.
+An image for PHP websites: [nginx](https://github.com/bfren/docker-nginx) and PHP-FPM in one container, with PHP 7.2 to 8.5. [Baïkal](https://github.com/bfren/docker-baikal), [FreshRSS](https://github.com/bfren/docker-freshrss) and [WordPress](https://github.com/bfren/docker-wordpress) are built on it.
 
 It is [Nginx](https://github.com/bfren/docker-nginx) with:
 
@@ -43,7 +43,7 @@ Open `http://localhost:8080`. Requests for files that don't exist are sent to `/
 
 ## Features
 
-* 🐘 PHP 7.4, 8.0, 8.1, 8.2, 8.3, 8.4 and 8.5 - choose with the image tag
+* 🐘 PHP 8.2, 8.3, 8.4 and 8.5 - choose with the image tag
 * ⚡ PHP-FPM, with OPcache (and the JIT compiler on PHP 8) turned on
 * ⚙️ Override `php.ini` and PHP-FPM's `www.conf` with small JSON files
 * 🔒 Secure defaults: `allow_url_fopen` off, `phpinfo()` disabled, HTTP-only secure session cookies, session upload progress off, and the environment hidden from PHP unless you choose otherwise
@@ -71,11 +71,6 @@ There is no `latest` tag - always choose a PHP version.
 | 8.4 | 8.4.26  | 1.30  | 3.24   | 2028-12-31                |
 | 8.3 | 8.3.35  | 1.30  | 3.24   | 2027-12-31                |
 | 8.2 | 8.2.33  | 1.28  | 3.22   | 2026-12-31                |
-| 8.1 | 8.1.34  | 1.24  | 3.19   | ended 2025-12-31          |
-| 8.0 | 8.0.30  | 1.22  | 3.16   | ended 2023-11-26          |
-| 7.4 | 7.4.33  | 1.20  | 3.15   | ended 2022-11-28          |
-
-PHP 8.1 and older no longer receive security fixes, and nor do the Alpine releases they are built on - use them only for legacy sites. [Source: php.net](https://www.php.net/supported-versions.php)
 
 ## Configuration
 
