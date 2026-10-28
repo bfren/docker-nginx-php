@@ -6,7 +6,7 @@
 
 ## Introduction
 
-An image for PHP websites: [nginx](https://github.com/bfren/docker-nginx) and PHP-FPM in one container, with PHP 7.2 to 8.5. [Baïkal](https://github.com/bfren/docker-baikal), [FreshRSS](https://github.com/bfren/docker-freshrss) and [WordPress](https://github.com/bfren/docker-wordpress) are built on it.
+An image for PHP websites: [nginx](https://github.com/bfren/docker-nginx) and PHP-FPM in one container, with PHP 8.2 to 8.5. [Baïkal](https://github.com/bfren/docker-baikal), [FreshRSS](https://github.com/bfren/docker-freshrss) and [WordPress](https://github.com/bfren/docker-wordpress) are built on it.
 
 It is [Nginx](https://github.com/bfren/docker-nginx) with:
 
