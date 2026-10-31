@@ -1,0 +1,35 @@
+name: build
+
+on:
+  push:
+    branches: ['**']
+    tags-ignore: ['**']
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  build:
+    uses: bfren/docker/.github/workflows/build.yml@shared-build
+    with:
+      image: nginx-php
+      folders: |
+        8.2
+        8.3
+        8.4
+        8.5
+      platforms: |
+        linux/amd64
+        linux/arm/v7
+        linux/arm64
+      tags: |
+        php${FOLDER}
+        php${FOLDER}-${VERSION_MAJOR}
+        php${FOLDER}-${VERSION_MINOR}
+        php${FOLDER}-${VERSION}
+        php${PHP_REVISION}
+        php${PHP_REVISION}-${VERSION}
+    secrets:
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+      QUAY_TOKEN: ${{ secrets.QUAY_TOKEN }}
