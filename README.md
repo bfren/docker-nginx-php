@@ -30,7 +30,7 @@ Or with Docker Compose:
 ```yaml
 services:
   web:
-    image: quay.io/bfren/nginx-php:php8.5-9.0
+    image: quay.io/bfren/nginx-php:php8.5-10.0
     environment:
       - BF_PHP_EXT=mbstring pdo_mysql
     ports:
@@ -54,23 +54,23 @@ Open `http://localhost:8080`. Requests for files that don't exist are sent to `/
 
 Images are published to Docker Hub (`bfren/nginx-php`) and Quay.io (`quay.io/bfren/nginx-php`) for `linux/amd64`, `linux/arm/v7` and `linux/arm64`. Tags start with the PHP version.
 
-| Tag                | Example           | Use when                                              |
-| ------------------ | ----------------- | ----------------------------------------------------- |
-| `phpX.Y`           | `php8.5`          | You want the latest image for a PHP version           |
-| `phpX.Y-MAJOR`     | `php8.5-9`        | You want updates, but not breaking changes            |
-| `phpX.Y-MINOR`     | `php8.5-9.0`      | You want fixes only - **recommended for building on** |
-| `phpX.Y-VERSION`   | `php8.5-9.0.4`    | You want to pin this image exactly                    |
-| `phpX.Y.Z`         | `php8.5.11`       | You want an exact PHP release                         |
-| `phpX.Y.Z-VERSION` | `php8.5.11-9.0.4` | You want to pin both                                  |
+| Tag                | Example            | Use when                                              |
+| ------------------ | ------------------ | ----------------------------------------------------- |
+| `phpX.Y`           | `php8.5`           | You want the latest image for a PHP version           |
+| `phpX.Y-MAJOR`     | `php8.5-10`        | You want updates, but not breaking changes            |
+| `phpX.Y-MINOR`     | `php8.5-10.0`      | You want fixes only - **recommended for building on** |
+| `phpX.Y-VERSION`   | `php8.5-10.0.0`    | You want to pin this image exactly                    |
+| `phpX.Y.Z`         | `php8.5.12`        | You want an exact PHP release                         |
+| `phpX.Y.Z-VERSION` | `php8.5.12-10.0.0` | You want to pin both                                  |
 
 There is no `latest` tag - always choose a PHP version.
 
 | PHP | Release | nginx | Alpine | PHP security support ends |
 | --- | ------- | ----- | ------ | ------------------------- |
-| 8.5 | 8.5.11  | 1.30  | 3.24   | 2029-12-31                |
-| 8.4 | 8.4.26  | 1.30  | 3.24   | 2028-12-31                |
-| 8.3 | 8.3.35  | 1.30  | 3.24   | 2027-12-31                |
-| 8.2 | 8.2.33  | 1.28  | 3.22   | 2026-12-31                |
+| 8.5 | 8.5.12  | 1.30  | 3.24   | 2029-12-31                |
+| 8.4 | 8.4.27  | 1.30  | 3.24   | 2028-12-31                |
+| 8.3 | 8.3.36  | 1.30  | 3.24   | 2027-12-31                |
+| 8.2 | 8.2.35  | 1.28  | 3.22   | 2026-12-31                |
 
 ## Configuration
 
@@ -194,7 +194,7 @@ The [`bf-php` module](https://github.com/bfren/docker-php#the-bf-php-module) is 
 ## Building on this image
 
 ```dockerfile
-FROM quay.io/bfren/nginx-php:php8.5-9.0
+FROM quay.io/bfren/nginx-php:php8.5-10.0
 
 COPY ./overlay /
 RUN bf-install
