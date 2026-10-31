@@ -17,7 +17,7 @@ RUN \
 # STAGE 1: create final image
 #======================================================================================================================
 
-FROM quay.io/bfren/nginx:nginx1.28-alpine3.22-8.0.0 AS final
+FROM quay.io/bfren/nginx:nginx1.28-alpine3.22-9.0.0-dev AS final
 COPY --from=php /overlay /
 
 LABEL org.opencontainers.image.source="https://github.com/bfren/docker-nginx-php"
