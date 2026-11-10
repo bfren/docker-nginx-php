@@ -14,8 +14,8 @@ export def main [] {
     # generate list of environment variables to insert
     bf write "Loading BF_PHP_* environment variables into FPM config."
     let variables = $env
+        | record where key starts-with BF_PHP_
         | transpose key value
-        | where {|x| $x.key | str starts-with "BF_PHP_" }
         | select key override?
         | sort --natural
 

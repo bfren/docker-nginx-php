@@ -59,9 +59,9 @@ Images are published to Docker Hub (`bfren/nginx-php`) and Quay.io (`quay.io/bfr
 | `phpX.Y`           | `php8.5`           | You want the latest image for a PHP version           |
 | `phpX.Y-MAJOR`     | `php8.5-10`        | You want updates, but not breaking changes            |
 | `phpX.Y-MINOR`     | `php8.5-10.0`      | You want fixes only - **recommended for building on** |
-| `phpX.Y-VERSION`   | `php8.5-10.0.1`    | You want to pin this image exactly                    |
+| `phpX.Y-VERSION`   | `php8.5-10.0.2`    | You want to pin this image exactly                    |
 | `phpX.Y.Z`         | `php8.5.12`        | You want an exact PHP release                         |
-| `phpX.Y.Z-VERSION` | `php8.5.12-10.0.1` | You want to pin both                                  |
+| `phpX.Y.Z-VERSION` | `php8.5.12-10.0.2` | You want to pin both                                  |
 
 There is no `latest` tag - always choose a PHP version.
 
