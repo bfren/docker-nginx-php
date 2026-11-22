@@ -65,6 +65,8 @@ Images are published to Docker Hub (`bfren/nginx-php`) and Quay.io (`quay.io/bfr
 | `phpX.Y.Z`         | `php8.5.13`        | You want an exact PHP release                         |
 | `phpX.Y.Z-VERSION` | `php8.5.13-10.0.5` | You want to pin both                                  |
 
+A new `MAJOR` version means a breaking change. Before moving to one, read the [changelog](CHANGELOG.md), where each breaking change is marked **Breaking**.
+
 There is no `latest` tag - always choose a PHP version.
 
 | PHP | Release | nginx | Alpine | PHP security support ends |
