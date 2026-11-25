@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [10.0.5] - 2026-11-25
+
+### Added
+
+- `docker-compose.yml` - the Quickstart example as a file you can copy.
+
+### Changed
+
+- Base image updated to `bfren/nginx` 9.0.4, which installs the newest build of the pinned nginx version if an
+  architecture is missing the pinned build, and moves to `bfren/alpine-s6` 7.0.3 - see the
+  [nginx changelog](https://github.com/bfren/docker-nginx/blob/main/CHANGELOG.md).
+- Uses the `bfren/php` 4.0.4 overlay - see the [PHP changelog](https://github.com/bfren/docker-php/blob/main/CHANGELOG.md).
+
+### Fixed
+
+- README: the "Building on this image" Dockerfile was missing the `BF_IMAGE` and `BF_VERSION` build arguments,
+  so `bf-install` failed when you followed it.
+- README: step-by-step instructions for changing `php.ini` and PHP-FPM settings, including where to mount the file.
+
 ## [10.0.4] - 2026-11-20
 
 ### Changed
@@ -49,6 +68,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Images are built and published by the shared `bfren/docker` build workflow (`build.yml`), replacing the separate
   `dev.yml` and `publish.yml` workflows.
 
+[10.0.5]: https://github.com/bfren/docker-nginx-php/compare/v10.0.4...v10.0.5
 [10.0.4]: https://github.com/bfren/docker-nginx-php/compare/v10.0.3...v10.0.4
 [10.0.3]: https://github.com/bfren/docker-nginx-php/compare/v10.0.2...v10.0.3
 [10.0.2]: https://github.com/bfren/docker-nginx-php/compare/v10.0.1...v10.0.2

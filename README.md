@@ -39,6 +39,8 @@ services:
       - ./site:/www/public
 ```
 
+This example is also in [`docker-compose.yml`](docker-compose.yml).
+
 Open `http://localhost:8080`. Requests for files that don't exist are sent to `/index.php`, so front-controller frameworks work without changes.
 
 ## Features
@@ -59,9 +61,11 @@ Images are published to Docker Hub (`bfren/nginx-php`) and Quay.io (`quay.io/bfr
 | `phpX.Y`           | `php8.5`           | You want the latest image for a PHP version           |
 | `phpX.Y-MAJOR`     | `php8.5-10`        | You want updates, but not breaking changes            |
 | `phpX.Y-MINOR`     | `php8.5-10.0`      | You want fixes only - **recommended for building on** |
-| `phpX.Y-VERSION`   | `php8.5-10.0.4`    | You want to pin this image exactly                    |
+| `phpX.Y-VERSION`   | `php8.5-10.0.5`    | You want to pin this image exactly                    |
 | `phpX.Y.Z`         | `php8.5.13`        | You want an exact PHP release                         |
-| `phpX.Y.Z-VERSION` | `php8.5.13-10.0.4` | You want to pin both                                  |
+| `phpX.Y.Z-VERSION` | `php8.5.13-10.0.5` | You want to pin both                                  |
+
+A new `MAJOR` version means a breaking change. Before moving to one, read the [changelog](CHANGELOG.md), where each breaking change is marked **Breaking**.
 
 There is no `latest` tag - always choose a PHP version.
 
@@ -136,7 +140,9 @@ The official `php.ini` is downloaded when the image is built (see [PHP](https://
 | `02-upload.json`  | `post_max_size` and `upload_max_filesize` 64M                                                                                   |
 | `03-jit.json`     | OPcache on, with the `tracing` JIT and a 128M buffer                                                                            |
 
-To change or add settings, add your own file - e.g. mount `./php.json` to `/etc/bf/php.d/10-site.json`:
+To change or add settings:
+
+1. Create a JSON file with the settings you want, e.g. `php.json`:
 
 ```json
 {
@@ -146,11 +152,20 @@ To change or add settings, add your own file - e.g. mount `./php.json` to `/etc/
 }
 ```
 
+2. Mount it into `/etc/bf/php.d`, with a name that sorts after the defaults so it replaces them:
+
+```yaml
+    volumes:
+      - ./php.json:/etc/bf/php.d/10-site.json
+```
+
+3. Run `docker compose up -d`, which recreates the container with the new volume (a restart keeps the old volumes). The files are applied at every start, so after later edits to the file a restart is enough.
+
 The PHP image's `/php-ini.json` is **not** used here - use `/etc/bf/php.d` instead.
 
 ### PHP-FPM settings (`www.conf`)
 
-The same works for PHP-FPM: at every start, the JSON files in `/etc/bf/php-fpm.d` are applied to `www.conf`. PHP-FPM runs as the `www` user, and the defaults are `catch_workers_output = yes`, `decorate_workers_output = no` and `clear_env = yes`. For example, to allow more PHP processes:
+The same works for PHP-FPM: at every start, the JSON files in `/etc/bf/php-fpm.d` are applied to `www.conf`. PHP-FPM runs as the `www` user, and the defaults are `catch_workers_output = yes`, `decorate_workers_output = no` and `clear_env = yes`. For example, to allow more PHP processes, mount this file to `/etc/bf/php-fpm.d/10-site.json` in the same way:
 
 ```json
 {
@@ -195,6 +210,10 @@ The [`bf-php` module](https://github.com/bfren/docker-php#the-bf-php-module) is 
 
 ```dockerfile
 FROM quay.io/bfren/nginx-php:php8.5-10.0
+
+# required by bf-install, which saves them as the image name and version
+ARG BF_IMAGE=my-image
+ARG BF_VERSION=1.0.0
 
 COPY ./overlay /
 RUN bf-install

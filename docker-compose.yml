@@ -1,0 +1,9 @@
+services:
+  web:
+    image: quay.io/bfren/nginx-php:php8.5-10.0
+    environment:
+      - BF_PHP_EXT=mbstring pdo_mysql
+    ports:
+      - "8080:80"
+    volumes:
+      - ./site:/www/public
